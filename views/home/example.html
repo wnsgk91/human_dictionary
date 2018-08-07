@@ -1,0 +1,45 @@
+<html>
+    <script src="/Users/junha_lee/Documents/human/views/home/example.js"></script>
+<body>
+    <input type="text" id="search" /><br/><br/>
+
+
+    <button onclick="remove()">remove</button>
+
+    <button onclick="init()">init</button><br/><br/><br/>
+
+    <button onclick="search()">search</button>
+
+    <div id="log1"></div>
+    <div id="log2"></div>
+    <div id="log3"></div>
+    <div id="log4"></div>
+    <div id="log5"></div>
+        
+</body>
+<script>
+
+function init(){
+
+    localStorage.setItem('search_count',1);
+    alert("초기화");
+    var a = 0;
+    var s = ('p' + a)
+    var p0 = 1;
+    alert(s);
+    
+}
+
+
+
+function remove(){
+
+    alert(localStorage.length);
+    localStorage.clear();
+    alert(localStorage.length);
+}
+
+
+
+</script>
+</html>

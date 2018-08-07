@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+     
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- include header -->
+  <!-- <script src="includeHTML.js"></script> -->s
+    <script src="/Users/junha_lee/Documents/human/views/home/example.js""> </script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css', integrity='sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb', crossorigin='anonymous')>
+   <link src="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+
+
+  </head>
+
+
+
+  <body>
+    <!-- include header -->
+   <div include-html="index.html"></div>
+   <!--  <script>includeHTML();</script>-->
+
+    <!--<div id="header"></div>
+    <include-html target="index.html"></include-html>-->
+
+    <!-- Page Content -->
+<div class="container">
+  <div class="row">
+
+        <div class="col-lg-12 text-center">
+          <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
+          <!--searchbar-->
+            <div class="form-check-inline mb-4">
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id = "search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="fav_btn" onclick="search_history()">검색하기</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="fav_btn2" onclick="onclick_test()">search</button>
+                <button type="button" class="btn btn-outline-secondary ml-sm-2 mr-sm-2" onclick = "location.href = '/search' ">사전목록</button>
+                <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "location.href = '/favorite'" id="go_to_fav">즐겨찾기</button>
+              </form>
+            </div>
+
+
+            <div class="alert alert-warning alert-dismissible fade show mb-4" role="alert">
+                <a href="#" id = "search4"><strong>  </strong> <script type="text/javascript"> var a = localStorage.getItem('search4'); if(a != null) document.write(a);</script></a>
+                <a href="#" id = "search3"><strong>  </strong> <script type="text/javascript"> var b = localStorage.getItem('search3'); if(b != null) document.write(b);</script></a>
+                <a href="#" id = "search2"><strong>  </strong> <script type="text/javascript"> var c = localStorage.getItem('search2'); if(c != null) document.write(c);</script></a>
+                <a href="#" id = "search1"><strong>  </strong> <script type="text/javascript"> var d = localStorage.getItem('search1'); if(d != null) document.write(d);</script></a>
+                <a href="#" id = "search0"><strong>  </strong> <script type="text/javascript"> var e = localStorage.getItem('search0'); if(e != null) document.write(e);</script></a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+          <div class="col-lg-12 mb-4">
+             <div class="card my-sm-2">
+                <div class="card-header">이 주의 희귀난치병 이야기</div>
+                 <div class="card-body">
+                     <h5 class="card-title">Special title treatment</h5>
+                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                     <a href="#" class="btn btn-link">사전으로 검색하기</a>
+                 </div>
+            </div>
+          </div>
+
+
+        <div class="col-lg-12 text-center">
+
+            <!--<ul class="list-unstyled">
+              <li>maybe buttons here</li>
+              <li>jQuery 3.3.1</li>
+            </ul>-->
+        </div>
+        </div>
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript -->
+
+    <!-- <script src="vendor/jquery/jquery.min.js"></script>-->
+    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
+
+
+  </body>
+  <!-- <script src="vendor/jquery/Docu_handle_Fav_jqry.js"></script>-->
+</html>
