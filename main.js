@@ -45,33 +45,3 @@ app.locals.pretty = true;
     res.render('document/document.html');
 
   });
-
-
-  // 변수
-  var history_list = [];
-
-  // 검색버튼 눌렀을 때 호출되는 함수
-  function search_history(){
-
-    alert(history_list);
-    var a = history_list.length+1;
-
-    localStorage.setItem('search'+a,document.getElementById('search').value);
-    
-    history_list.push(localStorage.getItem('search'+a));
-
-    alert(history_list);
-
-  }
-
-    var arr = new Array();
-    var i =0;
-
-      function searching(){
-
-        alert(arr);
-
-        arr.push(i);
-        i++;
-
-    }

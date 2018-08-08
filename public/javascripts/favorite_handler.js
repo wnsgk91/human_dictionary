@@ -20,7 +20,7 @@ window.onload=function () {
 
 //favorite 페이지 즐겨찾기 로딩하기
 function loadList() {
-    location.href = '/views/favorites.html';
+    location.href = '/favorite';
     console.log(myFavoriteList);
 
     if(myFavoriteList == null){
