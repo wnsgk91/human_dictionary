@@ -1,6 +1,9 @@
-/*1. home-즐겨찾기 버튼/ nav bar 클릭시 목록 로드해오기
+/* TODO
+* 1. home-즐겨찾기 버튼/ nav bar 클릭시 목록 로드해오기
 * 2. document 에서 추가/제거 버튼 클릭시 작동
-* 3. favorite 에서 1개씩 제거 및 전체 제거*/
+* 3. favorite 에서 1개씩 제거 및 전체 제거
+*
+* 변수 형식 맞추기 */
 
 //변수 선언
 var myFavoriteList = JSON.parse(localStorage.getItem("myFavList")); //로컬 스토리지에 있던 myFavList 를 얻어온다.
@@ -27,6 +30,7 @@ function loadList() {
 
     if(myFavoriteList != null) {
         for (var i = 0; i = myFavoriteList.length; i++) {
+            //지우고 재출력하는 방식이 낫다
             var output = '<a href = "#" class="list-group-item list-group-item-action" ';
             output += 'id="' + myFavoriteList[i] + '">' + myFavoriteList[i] + '</a>'
                 + '<button type="button" class="btn btn-outline-info" id="rmv_fav">삭제</button></li>';
