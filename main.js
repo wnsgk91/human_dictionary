@@ -3,45 +3,66 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
-//jade 사용
-app.set('view engine', 'html');
+// ejs 사용
+app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-app.use(express.static(path.join(__dirname,'./public')));
+// app.use(express.static(path.join(__dirname,"public")));
+//app.use(express.static('public'));
+var staticResource = path.join(__dirname, '/public');
+console.log(staticResource);
+app.use(express.static(staticResource));
+/*app.use(express.static(__dirname));*/
+// app.use(express.static(__dirname + '/public/'));
+//app.use('/static', express.static(__dirname + '/public'));
 
-//정리 이쁘게
-app.locals.pretty = true;
 
-  app.listen(3000, function() {
+// mysql 연결
+//var mysql = require('mysql');
+//var con = mysql.createConnection({
+// host: 'localhost',
+// user: 'root',
+// password: 'dlwnsgk94',
+// database : 'dic'
+// });
+
+//con.connect();
+
+
+
+
+app.listen(3000, function() {
     console.log('Connected');
-  });
+});
 
 
-  app.get('/', function(req,res){
+app.get('/', function(req,res){
 
-    res.render('index.html');
+    res.render('header');
 
-  })
+})
 
-  app.get('/home', function(req,res){
+app.get('/home', function(req,res){
 
-    res.render('home/home.html');
-    
-  })
+    res.render('home/home');
 
-  app.get('/search',function(req, res){
+})
 
-    res.render('search/search.html');
+app.get('/search',function(req, res){
 
-  });
+    var sql = 'SELECT * FROM info';
 
-  app.get('/favorite', function(req,res){
+    res.render('search/search');
 
-    res.render('favorite/favorite.html');
+});
 
-  });
+app.get('/favorite', function(req,res){
 
-  app.get('/document', function(req,res){
+    res.render('favorite/favorite');
 
-    res.render('document/document.html');
+});
 
-  });
+app.get('/document', function(req,res){
+
+    res.render('document/document');
+
+});

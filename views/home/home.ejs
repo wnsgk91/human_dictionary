@@ -2,16 +2,8 @@
 <html>
 <head>
     <% include ../header.ejs %>
-    <% include /public/javascripts/favorite_handler.js %>
-    <% include /public/javascripts/search_history.js%>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/public/stylesheets/style.css' />
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-
 <!-- Page Content -->
 <div class="container">
     <div class="row">
@@ -25,7 +17,7 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="fav_btn" onclick="search_history()">검색하기</button>
                 <form class="form-inline my-2 my-lg-0">
                     <button type="button" class="btn btn-outline-secondary ml-sm-2 mr-sm-2" onclick = "location.href = '/search' ">사전목록</button>
-                    <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "moveToFavList()" id="go_to_fav_btn">즐겨찾기</button>
+                    <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
                 </form>
             </div>
 

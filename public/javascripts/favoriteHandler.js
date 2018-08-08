@@ -7,12 +7,12 @@
 var myFavoriteList = JSON.parse(localStorage.getItem("myFavList")); //로컬 스토리지에 있던 myFavList 를 얻어온다.
 
 //웹브라우저의 모든 구성요소 로드 끝났을 때 호출되는 함수.
-window.onload=function () {
+/*window.onload=function () {
     var go_to_fav_btn = document.getElementById("go_to_fav_btn");
     var go_to_fav_nav = document.getElementById("go_to_fav_nav");
     go_to_fav_btn.addEventListener("click", loadList);
     go_to_fav_nav.addEventListener("click", loadList);
-}
+}*/
 //즐겨찾기 페이지 이동
 function moveToFavList() {
     location.href = '/favorite';
@@ -28,7 +28,7 @@ function loadList() {
     }
     if(myFavoriteList != null) {
         for (var i = 0; i = myFavoriteList.length; i++) {
-            var output = '<a class="list-group-item list-group-item-action" id="<% myFavoriteList[i] %>" href="#"><% myFavoriteList[i] %><button type="button" class="btn btn-outline-info" id="rmv_fav">삭제</button></a>';
+            var output = '<a class="list-group-item list-group-item-action" id="<%= myFavoriteList[i] %>" href="#"><%= myFavoriteList[i] %><button type="button" class="btn btn-outline-info" id="rmv_fav">삭제</button></a>';
             origin_list.innerHTML += output;
         }
     }
@@ -48,17 +48,17 @@ $(function () {
 function rmvFromList(FavToRemove){
     if (myFavoriteList == null) {
         console.log("원래 즐겨찾기 없음");
-    }else{
+    }else {
         for (var j = 0; j < myFavoriteList.length; j++) {
             if (FavToRemove === myFavoriteList[j]) {
                 delete myFavoriteList[j];
                 localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
                 alert("즐겨찾기에서 제거되었습니다");
-            }else{
+            } else {
                 alert("즐겨찾기 목록에 없습니다");
             }
         }
-
+    }
 }
 
 //favorite 페이지 목록 모두 지우기.

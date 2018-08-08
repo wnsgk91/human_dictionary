@@ -2,15 +2,8 @@
 <html>
 <head>
     <% include ../header.ejs %>
-    <% include /public/javascripts/favorite_handler.js %>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/public/stylesheets/style.css' />
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-
 <!-- 전체목록 & Searchbar -->
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
@@ -21,12 +14,12 @@
 </nav>
 
 <!--Sample Data-->
-<% var data = [Aadlfkjdl, Bdlkafjdfa, Caldkfad] %>
+<% var data = ['Aadlfkjdl', 'Bdlkafjdfa', 'Caldkfad']; %>
 
 <!-- Page Content -->
 <div class="list-group">
-    <% for(var i = 0;  i < data.length; i++) {%>
-        <li class="list-group-item"><a href="#"><% data[i] %></a></li>
+    <% for(var i = 0;  i < data.length; i++) { %>
+        <li class="list-group-item"><a href="/<%= data[i] %>"><%= data[i] %></a></li>
     <% } %>
   <!--<li class="list-group-item">
     <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>

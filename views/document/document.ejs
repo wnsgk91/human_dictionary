@@ -2,14 +2,8 @@
 <html>
 <head>
     <% include ../header.ejs %>
-    <% include /public/javascripts/favorite_handler.js %>
-    <meta charset="utf-8">
-    <title><%= title %></title>
 </head>
 <body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-
 <!--title & short desc-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -22,7 +16,7 @@
 </div>
 
 <!--detailed desc-->
-<!--개요, 증상, 원인, 진단, 치료, 참고문헌 및 사이트, 의료기관, 기타 -->
+<!--개요, 증상, 원인, 진단, 치료, 참고문헌 및 사이트, 의료기관, 감수, 기타 -->
 
 <div class="card text-center">
     <div class="card-header">
@@ -47,6 +41,9 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">의료기관</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">감수</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">기타</a>
