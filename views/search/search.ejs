@@ -13,14 +13,13 @@
   </form>
 </nav>
 
-<!--Sample Data-->
-<% var data = ['Aadlfkjdl', 'Bdlkafjdfa', 'Caldkfad']; %>
-
 <!-- Page Content -->
 <div class="list-group">
-    <% for(var i = 0;  i < data.length; i++) { %>
-        <li class="list-group-item"><a href="/<%= data[i] %>"><%= data[i] %></a></li>
+
+    <% for(var i = 0; i< name.length; i++){%>
+        <li class="list-group-item"><a href="/document/:<%= name[i].name %>"><%= name[i].name %></a></li>
     <% } %>
+    
   <!--<li class="list-group-item">
     <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>
   </li>

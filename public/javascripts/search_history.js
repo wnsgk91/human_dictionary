@@ -8,7 +8,7 @@
     var show = document.getElementById('five_list');
 
     history_list[history_list.length] = value;
-    localStorage.setItem('search_history',JSON.stringify(history_list));
+    localStorage.setItem('search_history',JSON.stringify(history_list)+' ');
     show.innerHTML = history_list.slice(-5);
 
   } 

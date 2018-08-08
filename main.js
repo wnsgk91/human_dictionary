@@ -6,26 +6,34 @@ var app = express();
 // ejs 사용
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-// app.use(express.static(path.join(__dirname,"public")));
-//app.use(express.static('public'));
+
 var staticResource = path.join(__dirname, '/public');
 console.log(staticResource);
 app.use(express.static(staticResource));
-/*app.use(express.static(__dirname));*/
-// app.use(express.static(__dirname + '/public/'));
-//app.use('/static', express.static(__dirname + '/public'));
 
 
 // mysql 연결
-//var mysql = require('mysql');
-//var con = mysql.createConnection({
-// host: 'localhost',
-// user: 'root',
-// password: 'dlwnsgk94',
-// database : 'dic'
-// });
+var mysql = require('mysql');
+var con = mysql.createConnection({
+ host: 'localhost',
+ user: 'root',
+ password: 'dlwnsgk94',
+ database : 'dic'
+ });
 
-//con.connect();
+con.connect();
+
+var sql = "SELECT name from diseases";
+
+con.query(sql, function(err, rows, fields){
+	if(err){
+		console.log(err);
+	}else{
+		for(var i = 0 ; i < rows.length ; i++){
+			console.log(rows[i].name);
+		}
+	}
+})
 
 
 
@@ -47,13 +55,23 @@ app.get('/home', function(req,res){
 
 })
 
+
+
+
 app.get('/search',function(req, res){
 
-    var sql = 'SELECT * FROM info';
+    var sql = 'SELECT name FROM diseases';
 
-    res.render('search/search');
+    con.query(sql, function(err, name, fields){
+
+    	    res.render('search/search', {name:name});
+
+    	})
 
 });
+
+
+
 
 app.get('/favorite', function(req,res){
 
