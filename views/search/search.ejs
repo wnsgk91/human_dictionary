@@ -16,15 +16,14 @@
 <!-- Page Content -->
 <div class="list-group">
 
-    <% for(var i = 0; i< name.length; i++){%>
-        <li class="list-group-item"><a href="/document/:<%= name[i].name %>"><%= name[i].name %></a></li>
+    <li class="list-group-item"><a href="/document">Dapibus ac facilisis in</a></li>
+    <li class="list-group-item">Morbi leo risus  </li>
+    <a href="/views/document/document.html" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+
+    <% for(var i = 0;  i < data.length; i++) { %>
+        <li class="list-group-item"><a href="/<%= data[i] %>"><%= data[i] %></a></li>
     <% } %>
-    
-  <!--<li class="list-group-item">
-    <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>
-  </li>
-  <li class="list-group-item">Morbi leo risus  </li>
-  <a href="/views/document/document.html" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>-->
+
 </div>
 </body>
 </html>

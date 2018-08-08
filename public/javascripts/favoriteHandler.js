@@ -13,10 +13,6 @@ var myFavoriteList = JSON.parse(localStorage.getItem("myFavList")); //로컬 스
     go_to_fav_btn.addEventListener("click", loadList);
     go_to_fav_nav.addEventListener("click", loadList);
 }*/
-//즐겨찾기 페이지 이동
-function moveToFavList() {
-    location.href = '/favorite';
-}
 
 //즐겨찾기 목록 로딩해오기
 function loadList() {
@@ -24,7 +20,7 @@ function loadList() {
     var origin_list = document.getElementsByClassName('list-group');
     if(myFavoriteList == null){
         alert("즐겨찾기가 없습니다");
-        return true;
+        localStorage.setItem("myFavList", '');
     }
     if(myFavoriteList != null) {
         for (var i = 0; i = myFavoriteList.length; i++) {
@@ -72,31 +68,43 @@ $(function () {
 
 //document 페이지 즐겨찾기 추가
 $(function () {
-    $("#add").on("click", function () {
-        try{
-            //버튼 바꿔주기
-            $(this).html('즐겨찾기 삭제');
-            $(this).attr('id', 'rmv');
-            //$(this).attr('disabled', true);
-            var FavToAdd = $(this).closest("p").attr("id"); //가장 가까운 p 태그의 id를 얻는다. 병 이름!
+    $("#add").on("click", function addBtnFunc() {
+        var FavToAdd = document.getElementsByTagName("h1").innerHTML; //가장 가까운 p 태그의 id를 얻는다. 병 이름!
+        console.log(FavToAdd);
+        if(myFavoriteList == null){
+            myFavoriteList = [FavToAdd];
+            localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
+        }else {
             addToList(FavToAdd);
+            localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
+        }
+        loadList();
+        /*try{
+            //버튼 바꿔주기
+            /!*$(this).html('즐겨찾기 삭제');
+            $(this).attr('id', 'rmv');*!/
+            //$(this).attr('disabled', true);
+            var FavToAdd = $(this).closest("h1").innerText; //가장 가까운 p 태그의 id를 얻는다. 병 이름!
+            addToList(FavToAdd);
+            loadList();
            // $("#rmv").attr('disabled', false); //즐겨찾기에서 삭제 버튼 활성화시켜준다.
         }
         catch (e) {
             console.log("Error: saving to local storage");
-        }
+        }*/
     });
 });
+
 
 function addToList(FavToAdd){
     if (myFavoriteList != null) {
         for (var j = 0; j < myFavoriteList.length; j++) {
-            if (FavToRemove === myFavoriteList[j]) {
+            if (FavToAdd === myFavoriteList[j]) {
                 alert("이미 즐겨찾기에 있습니다");
             }
         }
     }else {
-        myFavoriteList.push(FavToAdd);
+        myFavoriteList.add(FavToAdd);
         alert("즐겨찾기에 추가되었습니다");
     }
     localStorage.setItem("myFavList", JSON.stringify(myFavoriteList)); //갱신된 리스트를 로컬 스토리지에 저장한다.

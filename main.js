@@ -7,9 +7,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-var staticResource = path.join(__dirname, '/public');
-console.log(staticResource);
-app.use(express.static(staticResource));
+app.use(express.static(path.join(__dirname, '/public')));
 
 
 // mysql 연결
