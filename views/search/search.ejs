@@ -10,6 +10,7 @@
 <body>
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+
 <!-- 전체목록 & Searchbar -->
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
@@ -19,13 +20,19 @@
   </form>
 </nav>
 
+<!--Sample Data-->
+<% var data = [Aadlfkjdl, Bdlkafjdfa, Caldkfad] %>
+
 <!-- Page Content -->
 <div class="list-group">
-  <li class="list-group-item">
+    <% for(var i = 0;  i < data.length; i++) {%>
+        <li class="list-group-item"><% data[i] %><button type="button" class="btn btn-outline-info">즐겨찾기 추가</button></li>
+    <% } %>
+  <!--<li class="list-group-item">
     <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>
   </li>
   <li class="list-group-item">Morbi leo risus  </li>
-  <a href="/views/document/document.html" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="/views/document/document.html" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>-->
 </div>
 </body>
 </html>
