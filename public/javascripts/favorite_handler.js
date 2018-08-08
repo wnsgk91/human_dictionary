@@ -1,7 +1,8 @@
 /* TODO
-* 1. home-즐겨찾기 버튼/ nav bar 클릭시 목록 로드해오기
+* 1. home-즐겨찾기 버튼/ nav bar 클릭시 페이지 이동, 페이지 뜨면서 목록 로딩 OK
 * 2. document 에서 추가/제거 버튼 클릭시 작동
-* 3. favorite 에서 1개씩 제거 및 전체 제거*/
+* 3. favorite 에서 1개씩 제거
+* 4. favorite 에서 전체 제거 OK*/
 
 var myFavoriteList = JSON.parse(localStorage.getItem("myFavList")); //로컬 스토리지에 있던 myFavList 를 얻어온다.
 
@@ -17,47 +18,36 @@ function moveToFavList() {
     location.href = '/favorite';
 }
 
-//favorite 페이지 즐겨찾기 로딩하기
+//즐겨찾기 목록 로딩해오기
 function loadList() {
     console.log(myFavoriteList);//확인
-
+    var origin_list = document.getElementsByClassName('list-group');
     if(myFavoriteList == null){
-        myFavoriteList = ['즐겨찾기를 추가하세요'];
-        /*var origin_list = document.getElementsByClassName('list-group');
-        origin_list.innerHTML += '<a href = "#" class="list-group-item list-group-item-action">즐겨찾기를 추가하세요.</a>';*/
+        alert("즐겨찾기가 없습니다");
+        return true;
     }
-
     if(myFavoriteList != null) {
         for (var i = 0; i = myFavoriteList.length; i++) {
-            var output = '<a href = "#" class="list-group-item list-group-item-action" ';
-            output += 'id="' + myFavoriteList[i] + '">' + myFavoriteList[i] + '</a>'
-                + '<button type="button" class="btn btn-outline-info" id="rmv_fav">삭제</button></li>';
+            var output = '<a class="list-group-item list-group-item-action" id="<% myFavoriteList[i] %>" href="#"><% myFavoriteList[i] %><button type="button" class="btn btn-outline-info" id="rmv_fav">삭제</button></a>';
             origin_list.innerHTML += output;
         }
-
     }
 }
 
-//favorite 페이지 목록에서 즐겨찾기 삭제 버튼
+//favorite 페이지 목록에서 한 개 삭제
 $(function () {
     $("#rmv_fav").on("click", function () {
-        /*if( $(this).html() === '즐겨찾기 삭제'){
-            $(this).html('즐겨찾기 추가');
-            $(this).attr('id', 'add');
-        }*/
-        $(this).attr('disabled', true);//누른 버튼 비활성화
-        var FavToRemove = $(this).closest("a").attr("id");//가장 가까운 a 태그에서 id 얻어온다.
-        rmvFromList(FavToRemove);
-        _removeElement($(this).closest("li"));
-        myFavoriteList[j] = [];
-        //$("#add").attr('disabled', false);//즐겨찾기 추가 버튼 활성화
+        confirm("즐겨찾기에서 삭제하시겠습니까?");
+        var FavToRemove = $(this).closest("a")//가장 가까운 a 태그에서
+        rmvFromList(FavToRemove.attr("id"));//id 얻어온다.
+        loadList();
     });
 });
 
 //myFavoriteList 에서 요소 제거하기
 function rmvFromList(FavToRemove){
     if (myFavoriteList == null) {
-        alert("즐겨찾기가 없습니다");
+        console.log("원래 즐겨찾기 없음");
     }else{
         for (var j = 0; j < myFavoriteList.length; j++) {
             if (FavToRemove === myFavoriteList[j]) {
@@ -68,7 +58,7 @@ function rmvFromList(FavToRemove){
                 alert("즐겨찾기 목록에 없습니다");
             }
         }
-    }
+
 }
 
 //favorite 페이지 목록 모두 지우기.

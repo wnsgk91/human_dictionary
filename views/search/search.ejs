@@ -2,7 +2,7 @@
 <html>
 <head>
     <% include ../header.ejs %>
-    <% include /public/favorite_handler.js %>
+    <% include /public/javascripts/favorite_handler.js %>
     <meta charset="utf-8">
     <title><%= title %></title>
     <link rel='stylesheet' href='/public/stylesheets/style.css' />
@@ -26,7 +26,7 @@
 <!-- Page Content -->
 <div class="list-group">
     <% for(var i = 0;  i < data.length; i++) {%>
-        <li class="list-group-item"><% data[i] %><button type="button" class="btn btn-outline-info">즐겨찾기 추가</button></li>
+        <li class="list-group-item"><a href="#"><% data[i] %></a></li>
     <% } %>
   <!--<li class="list-group-item">
     <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>

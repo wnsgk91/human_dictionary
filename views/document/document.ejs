@@ -2,7 +2,7 @@
 <html>
 <head>
     <% include ../header.ejs %>
-    <% include /public/favorite_handler.js %>
+    <% include /public/javascripts/favorite_handler.js %>
     <meta charset="utf-8">
     <title><%= title %></title>
 </head>
@@ -22,17 +22,34 @@
 </div>
 
 <!--detailed desc-->
+<!--개요, 증상, 원인, 진단, 치료, 참고문헌 및 사이트, 의료기관, 기타 -->
+
 <div class="card text-center">
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">증상</a>
+                <a class="nav-link active" href="#">개요</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">증상</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">원인</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">진단</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">치료</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">연구</a>
+                <a class="nav-link" href="#">참고자료</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">의료기관</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">기타</a>
             </li>
         </ul>
     </div>
