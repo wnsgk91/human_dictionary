@@ -17,24 +17,11 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- password: '1648',//ellene
+ password: 'dlwnsgk94',
  database : 'dic'
  });
 
 con.connect();
-
-var sql = "SELECT name from disease";//ellene
-
-con.query(sql, function(err, rows, fields){
-	if(err){
-		console.log(err);
-	}else{
-		for(var i = 0 ; i < rows.length ; i++){
-			console.log(rows[i].name);
-		}
-	}
-});
-
 
 app.listen(3000, function() {
     console.log('Connected');
@@ -48,7 +35,7 @@ app.get('/', function(req,res){
 
 app.get('/home', function(req,res){
 
-    var sql = 'SELECT * FROM disease ORDER BY RAND() LIMIT 1'; //ellene
+    var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1'; //ellene
 
     con.query(sql, function (err, name) {
         res.render('home/home', {name: name});
@@ -56,48 +43,36 @@ app.get('/home', function(req,res){
 
 });
 
-/* TODO 검색기능 구현하기
-
-data.sort();
-data = data.filter(
-    (disease) => {//이름에 검색내용이 포함되어있을 때 true
-        return disease.name.toLowerCase().indexOf(this.state.keyword) > -1;
-    }
-);
-*/
-
 app.get('/search',function(req, res){
-
-    var sql = 'SELECT name FROM disease';//ellene
-
-    con.query(sql, function(err, name, fields) {
-
-        res.render('search/search', {name: name});
-    });
-
+    var sql = 'SELECT * FROM diseases';
     con.query(sql, function(err, names, fields){
         res.render('search/search', {name:names});
-        console.log(names);
-    });
-
+    })
 });
 
-app.get('/document/:name', function(req,res){
+app.get(['/document/:name','/document/:name/:contents'], function(req, res){
 
     var name = req.params.name;
-    var sql = 'SELECT * FROM disease WHERE name = ?'; //ellene
+    var sql = 'SELECT * FROM diseases WHERE name = ?';
 
     con.query(sql, [name], function(err, name, fields){
-         res.render('document/document',{names:name});
-         console.log(name);
+        
+        var contents = req.params.contents;
+        //var sql = 'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = diseases';
+        var sql = 'SELECT * FROM types';
+
+        con.query(sql, [name, contents], function(err, contents, fields){
+            res.render('document/document', {names:name, contents:contents});
+            console.log(name);
+            console.log(contents);
+        })
+
     })
 
-});
-
+})
 
 app.get('/favorite', function(req,res){
 
     res.render('favorite/favorite');
 
 });
-

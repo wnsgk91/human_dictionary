@@ -48,6 +48,7 @@ $(function () {
     $("#go_to_home_nav").on("click", show_history());
 });
 
+
 $(function () {
     $("#history_log").on("click", search_history());
 });

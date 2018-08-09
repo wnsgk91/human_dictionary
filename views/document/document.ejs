@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
     <% include ../header.ejs %>
 </head>
@@ -20,22 +21,20 @@
     <div class="card text-center">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item active"><a class="nav-link active" href="/document/<%= names %>">개요</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">증상</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">원인</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">진단</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">치료</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">참고자료</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">의료기관</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">감수</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">기타</a></li>
+                <li class="nav-item active"><a class="nav-link active" href="/document/<%= names[0].name %>/<%= contents[0].sum %>">개요</a></li>
+                <li class="nav-item active"><a class="nav-link active" href="/document/<%= names[0].name %>/<%= contents[0].symptom %>">증상</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].cause %>">원인</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].diagnosis %>">진단</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].treat %>">치료</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].site %>">참고자료</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].institution %>">의료기관</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].supervisor %>">감수</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/document/<%= names[0].name %>/<%= contents[0].etc %>">기타</a></li>
             </ul>
         </div>
         <div class="card-body">
-            <h5 class="card-title">개요</h5>
-            <p class="card-text"><%= names[0].symptom %></p>
-
-            <p class="card-text">여기에는 개요 내용이 들어갑니다.<%= names %></p>
+            <h5 class="card-title"><%=  %></h5>
+            <p class="card-text"><%=  %></p>
         </div>
     </div>
 </form>
