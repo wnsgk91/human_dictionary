@@ -14,7 +14,7 @@
 </nav>
 
 <!-- Page Content -->
-<form action="/document/<%= name.name %>" method="post">
+<form action="/document/<%= name %>" method="post">
 <div class="list-group">
     <% for(var i = 0; i< name.length; i++){%>
         <li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></li>

@@ -7,10 +7,11 @@
         <!--title & short desc-->
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4"><%= names %></h1>
+                <h1 class="display-4"><%= names[0].name %></h1>
                 <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
                 <p id="Dapibus ac facilisis in">
                     <button type="button" class="btn btn-outline-info" id="add">즐겨찾기 추가</button>
+                    <button type="button" class="btn btn-outline-info" id="rmv">즐겨찾기 삭제</button>
                 </p>
             </div>
         </div>
@@ -21,38 +22,20 @@
             <div class="card text-center">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/document/<%= names %>">개요</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">증상</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">원인</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">진단</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">치료</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">참고자료</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">의료기관</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">감수</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">기타</a>
-                        </li>
+                        <li class="nav-item active"><a class="nav-link active" href="/document/<%= names %>">개요</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">증상</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">원인</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">진단</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">치료</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">참고자료</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">의료기관</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">감수</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#">기타</a></li>
                     </ul>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text"><% names %></p>
+                    <h5 class="card-title">개요</h5>
+                    <p class="card-text"><%= names[0].symptom %></p>
                 </div>
             </div>
         </form>

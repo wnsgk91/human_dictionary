@@ -50,21 +50,22 @@ app.get('/search',function(req, res){
 
 });
 
+app.get('/document/:name', function(req,res){
+
+    var name = req.params.name;
+    var sql = 'SELECT * FROM diseases WHERE name = ?';
+
+    con.query(sql, [name], function(err, name, fields){
+         res.render('document/document',{names:name});
+         console.log(name);
+    })
+
+});
+
+
 app.get('/favorite', function(req,res){
 
     res.render('favorite/favorite');
 
 });
 
-app.get('/document/:name', function(req,res){
-
-    var name = req.params.name;
-    var sql = 'SELECT * FROM diseases WHERE name = ?';
-
-    con.query(sql, function(err, names, fields){
-         res.render('document/document',{names:name});
-         console.log(names);
-         console.log(name.symptom);
-    })
-
-});
