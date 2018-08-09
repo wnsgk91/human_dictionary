@@ -40,3 +40,19 @@ function history_process(history_list){
 $(function () {
     $("#go_to_home_nav").on("click", show_history());
 });
+  /*window.onload = function () {
+      show_history();
+  }*/
+
+  // 검색버튼 눌렀을 때 호출되는 함수
+  function search_history(){
+   // var history_list = [];
+    var value = document.getElementById('search').value;
+    //var show = document.getElementById('five_list');
+    if(value !== '') {
+        history_list[history_list.length] = value;
+        localStorage.setItem('search_history', JSON.stringify(history_list));
+        console.log("히스토리 생성");
+        show_history();
+    }
+  }
