@@ -23,25 +23,9 @@ var con = mysql.createConnection({
 
 con.connect();
 
-var sql = "SELECT name from diseases";
-
-con.query(sql, function(err, rows, fields){
-	if(err){
-		console.log(err);
-	}else{
-		for(var i = 0 ; i < rows.length ; i++){
-			console.log(rows[i].name);
-		}
-	}
-})
-
-
-
-
 app.listen(3000, function() {
     console.log('Connected');
 });
-
 
 app.get('/', function(req,res){
 
@@ -55,23 +39,16 @@ app.get('/home', function(req,res){
 
 })
 
-
-
-
 app.get('/search',function(req, res){
 
-    var sql = 'SELECT name FROM diseases';
+    var sql = 'SELECT * FROM diseases';
 
-    con.query(sql, function(err, name, fields){
-
-    	    res.render('search/search', {name:name});
-
-    	})
+    con.query(sql, function(err, names, fields){
+    	res.render('search/search', {name:names});
+        console.log(names);
+    })
 
 });
-
-
-
 
 app.get('/favorite', function(req,res){
 
@@ -79,8 +56,17 @@ app.get('/favorite', function(req,res){
 
 });
 
-app.get('/document', function(req,res){
+app.get('/document/:name', function(req,res){
 
-    res.render('document/document');
+    var name = req.params.name;
+    var sql = 'SELECT * FROM diseases WHERE name = ?';
+
+    con.query(sql, function(err, names, fields){
+         res.render('document/document',{names:name});
+         console.log(names);
+         console.log(name.symptom);
+    })
 
 });
+
+
