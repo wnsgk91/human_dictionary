@@ -63,13 +63,14 @@ function loadFavorites() {
     myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
 
     if( myFavoriteList != null){
+        var output = '';
         for (var i = 0; i < myFavoriteList.length; i++){
             if(myFavoriteList[i] != null){
-                var output = '<a href = "'+ myFavoriteList[i] + '" class="list-group-item list-group-item-action">'+ myFavoriteList[i] + '</a>';
-                var placeList = $("#favorite_list")[0];
-                placeList.innerHTML = output;//undefined
+                output += '<a href = "'+ myFavoriteList[i] + '" class="list-group-item list-group-item-action">'+ myFavoriteList[i] + '</a>';
             }
         }
+        var placeList = $("#favorite_list")[0];
+        placeList.innerHTML += output;
     }
 }
 

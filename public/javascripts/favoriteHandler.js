@@ -153,7 +153,7 @@ $(function () {
 
 //index 페이지 (상단 메뉴바) & home 페이지 즐겨찾기 버튼 클릭시 데이터 로드
 //41:55
-/*$(function () {
+$(function () {
     $("#fav_btn").on("click", function () {
         console.log("Restoring array data from LocalStorage");
 
@@ -172,4 +172,4 @@ $(function () {
         output+="</ul>";
         document.getElementById("here_goes_fav_list").innerHTML = output;//46:55
     });
-});*/
+});

@@ -33,7 +33,7 @@ con.query(sql, function(err, rows, fields){
 			console.log(rows[i].name);
 		}
 	}
-})
+});
 
 
 app.listen(3000, function() {
@@ -54,7 +54,7 @@ app.get('/home', function(req,res){
 
 app.get('/search',function(req, res) {
 
-    var sql = 'SELECT * FROM diseases';
+    var sql = 'SELECT * FROM disease';//ellene
 
 });
 
@@ -77,7 +77,7 @@ app.get('/search',function(req, res){
 app.get('/document/:name', function(req,res){
 
     var name = req.params.name;
-    var sql = 'SELECT * FROM diseases WHERE name = ?';
+    var sql = 'SELECT * FROM disease WHERE name = ?'; //ellene
 
     con.query(sql, [name], function(err, name, fields){
          res.render('document/document',{names:name});
