@@ -1,7 +1,9 @@
+//TODO ""통일하기
+
 // 검색버튼 눌렀을 때 호출되는 함수
 function search_history(){
   var history_list = JSON.parse(localStorage.getItem("search_history"));
-  var value = document.getElementById('search').value;
+  var value = document.getElementById('search').value;//이름 확실하게
   if(value !== '') {
       history_list[history_list.length] = value;
       localStorage.setItem("search_history", JSON.stringify(history_list));

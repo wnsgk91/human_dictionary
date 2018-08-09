@@ -3,10 +3,10 @@ $(function () {
     $("#add").on("click", function () {
         try {
             var myFavoriteList;
-            var favToAdd = $('.display-4')[0].innerHTML;
-            console.log(favToAdd);
+            var favToAdd = $('.display-4')[0].innerHTML;//id 로 바꾸기
+            //console.log(favToAdd);
             myFavoriteList= JSON.parse(localStorage.getItem("myFavList"));
-            if (myFavoriteList == null) {
+            if (myFavoriteList === null) {
                 myFavoriteList = [favToAdd];
                 localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
                 alert("즐겨찾기에 추가되었습니다");
@@ -27,7 +27,7 @@ $(function () {
             }
         }
         catch (e) {
-            console.log("실패");
+            console.log(e);
         }
     });
 });
@@ -35,7 +35,7 @@ $(function () {
 // document 페이지에서 즐겨찾기 삭제 버튼 눌렀을 때
 $(function () {
     $("#rmv").on("click", function () {
-        var favToRmv = $('.display-4')[0].innerHTML;
+        var favToRmv = $('.display-4')[0].innerHTML;//id 로 바꾸기
         console.log(favToRmv);
         myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
         if (myFavoriteList !== null) {
@@ -60,7 +60,7 @@ $(function () {
 
 // favorite 페이지에 목록 로딩해주기
 function loadFavorites() {
-    console.log("즐겨찾기 목록 불러오는 중");
+    //console.log("즐겨찾기 목록 불러오는 중");
     var loadList;
     loadList = JSON.parse(localStorage.getItem("myFavList"));
     console.log(loadList);
@@ -72,7 +72,7 @@ function loadFavorites() {
                 output += '<a href = "'+ loadList[i] + '" class="list-group-item list-group-item-action">'+ loadList[i] + '</a>';
             }
         }
-        $("#favorite_list")[0].innerHTML = output;
+        $("#favorite_list")[0].innerHTML = output;//jqeury selector 찾아보기, appendChild
     }
 }
 

@@ -54,9 +54,17 @@ app.get('/home', function(req,res){
         res.render('home/home', {name: name});
     });
 
-
 });
 
+/* TODO 검색기능 구현하기
+
+data.sort();
+data = data.filter(
+    (disease) => {//이름에 검색내용이 포함되어있을 때 true
+        return disease.name.toLowerCase().indexOf(this.state.keyword) > -1;
+    }
+);
+*/
 
 app.get('/search',function(req, res){
 
