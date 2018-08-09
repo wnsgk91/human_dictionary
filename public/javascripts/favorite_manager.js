@@ -1,3 +1,4 @@
+// document 페이지에서 즐겨찾기 추가 버튼 눌렀을 때
 $(function () {
     $("#add").on("click", function () {
         try {
@@ -31,9 +32,9 @@ $(function () {
     });
 });
 
+// document 페이지에서 즐겨찾기 삭제 버튼 눌렀을 때
 $(function () {
     $("#rmv").on("click", function () {
-
         var favToRmv = $('.display-4')[0].innerHTML;
         console.log(favToRmv);
         myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
@@ -57,6 +58,7 @@ $(function () {
     });
 });
 
+// favorite 페이지에 목록 로딩해주기
 function loadFavorites() {
     console.log("즐겨찾기 목록 불러오는 중");
     var loadList;
@@ -74,10 +76,7 @@ function loadFavorites() {
     }
 }
 
-window.onload = function () {
-
-};
-
+// 이벤트 처리
 $(function () {
     $("#go_to_fav_btn").on("click", loadFavorites());
 });

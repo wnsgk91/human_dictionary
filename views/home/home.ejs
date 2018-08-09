@@ -6,43 +6,31 @@
 <body>
 <!-- Page Content -->
 <div class="container">
-    <div class="row">
-
-        <div class="col-lg-12 text-center">
-            <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
-
-            <!--검색바-->
-            <div class="form-check-inline mb-4">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id = "search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="history_log" onclick="search_history()">검색하기</button>
-                <!--<form class="form-inline my-2 my-lg-0">-->
-                <button type="button" class="btn btn-outline-secondary ml-sm-2 mr-sm-2" onclick = "location.href = '/search' ">사전목록</button>
-                <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
-                <!--</form>-->
-            </div>
-        </div>
-            <!--<div class="alert alert-warning alert-dismissible fade show mb-4" role="alert" id='five_list'>
-                    최근 검색 목록
-            </div>-->
-        <div class="card-deck mb-3 text-center" id="history_place">
-        <!--<div class="card" style="width: 18rem;">
+<div class="row">
+<div class="col-lg-12 text-center">
+    <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
+    <!--검색바-->
+    <div class="form-check-inline mb-4">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id = "search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="history_log" onclick="search_history()">검색하기</button>
+        <button type="button" class="btn btn-outline-secondary ml-sm-2 mr-sm-2" onclick = "location.href = '/search' ">사전목록</button>
+        <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
+    </div>
+</div>
+<div class="card-deck mb-3 text-center" id="history_place">
+<!--검색어 히스토리가 들어가는 부분-->
+</div>
+    <div class="col-lg-12 mb-4">
+        <div class="card my-sm-2">
+            <div class="card-header">희귀난치병 이야기</div>
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <a href="#" class="card-link">Card link</a>
-            </div>
-        </div>-->
-        </div>
-            <div class="col-lg-12 mb-4">
-                <div class="card my-sm-2">
-                    <div class="card-header">이 주의 희귀난치병 이야기</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-link">사전으로 검색하기</a>
-                    </div>
-                </div>
+                <h5 class="card-title"><%= name[0].name %></h5>
+                <p class="card-text"><%= name[0].overview %></p>
+                <a href="/document/<%= name[0].name %>" class="btn btn-link">사전으로 검색하기</a>
             </div>
         </div>
     </div>
+</div>
+</div>
 </body>
 </html>

@@ -48,7 +48,12 @@ app.get('/', function(req,res){
 
 app.get('/home', function(req,res){
 
-    res.render('home/home');
+    var sql = 'SELECT * FROM disease ORDER BY RAND() LIMIT 1'; //ellene
+
+    con.query(sql, function (err, name) {
+        res.render('home/home', {name: name});
+    });
+
 
 });
 

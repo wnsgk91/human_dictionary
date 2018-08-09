@@ -4,7 +4,7 @@
     <% include ../header.ejs %>
 </head>
 <body>
-<!-- 전체목록 & Searchbar -->
+<!-- 소제목 & Searchbar -->
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
   <form class="form-inline">
@@ -12,8 +12,7 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
-
-<!-- Page Content -->
+<!-- 전체 목록이 들어가는 부분 -->
 <form action="/document/<%= name %>" method="post">
 <div class="list-group">
     <% for(var i = 0; i< name.length; i++){%>
@@ -21,12 +20,5 @@
     <% } %>
     </div>
 </form>
-    
-  <!--<li class="list-group-item">
-    <a href="/views/document">Dapibus ac facilisis in</a> <button type="button" class="btn btn-outline-info">즐겨찾기 추가</button>
-  </li>
-  <li class="list-group-item">Morbi leo risus  </li>
-  <a href="/views/document/document.html" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>-->
-
 </body>
 </html>
