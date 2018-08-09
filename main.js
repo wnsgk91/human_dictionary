@@ -52,11 +52,6 @@ app.get('/home', function(req,res){
 
 });
 
-app.get('/search',function(req, res) {
-
-    var sql = 'SELECT * FROM disease';//ellene
-
-});
 
 app.get('/search',function(req, res){
 
