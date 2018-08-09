@@ -7,11 +7,12 @@
 <!--title & short desc-->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4"><%= names[0].name %></h1>
-        <p>
+        <h1 class="display-4"><%= names[0].name %>
+        <span>
             <button type="button" class="btn btn-outline-info" id="add">즐겨찾기 추가</button>
             <button type="button" class="btn btn-outline-info" id="rmv">즐겨찾기 삭제</button>
-        </p>
+        </span>
+        </h1>
     </div>
 </div>
 <!--detailed desc 개요, 증상, 원인, 진단, 치료, 참고문헌 및 사이트, 의료기관, 감수, 기타-->
@@ -38,5 +39,6 @@
         </div>
     </div>
 </form>
+<script src="/javascripts/favorite_manager.js"></script>
 </body>
 </html>
