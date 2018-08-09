@@ -44,7 +44,7 @@ app.get('/search',function(req, res){
     var sql = 'SELECT * FROM diseases';
 
     con.query(sql, function(err, names, fields){
-    	res.render('search/search', {name:names});
+        res.render('search/search', {name:names});
         console.log(names);
     })
 
@@ -68,5 +68,3 @@ app.get('/document/:name', function(req,res){
     })
 
 });
-
-
