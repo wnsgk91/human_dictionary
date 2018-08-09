@@ -37,7 +37,7 @@ $(function () {
         var favToRmv = $('.display-4')[0].innerHTML;
         console.log(favToRmv);
         myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
-        if (myFavoriteList != null) {
+        if (myFavoriteList !== null) {
             for (var i = 0; i < myFavoriteList.length; i++) {
                 if (favToRmv === myFavoriteList[i]) {
                     var index = i;
@@ -59,20 +59,24 @@ $(function () {
 
 function loadFavorites() {
     console.log("즐겨찾기 목록 불러오는 중");
+    var loadList;
+    loadList = JSON.parse(localStorage.getItem("myFavList"));
+    console.log(loadList);
 
-    myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
-
-    if( myFavoriteList != null){
+    if( loadList != null){
         var output = '';
-        for (var i = 0; i < myFavoriteList.length; i++){
-            if(myFavoriteList[i] != null){
-                output += '<a href = "'+ myFavoriteList[i] + '" class="list-group-item list-group-item-action">'+ myFavoriteList[i] + '</a>';
+        for (var i = 0; i < loadList.length; i++){
+            if(loadList[i] !== null){
+                output += '<a href = "'+ loadList[i] + '" class="list-group-item list-group-item-action">'+ loadList[i] + '</a>';
             }
         }
-        var placeList = $("#favorite_list")[0];
-        placeList.innerHTML += output;
+        $("#favorite_list")[0].innerHTML = output;
     }
 }
+
+window.onload = function () {
+
+};
 
 $(function () {
     $("#go_to_fav_btn").on("click", loadFavorites());
