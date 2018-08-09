@@ -50,26 +50,18 @@ app.get('/search',function(req, res){
     })
 });
 
-app.get(['/document/:name','/document/:name/:contents'], function(req, res){
+
+app.get('/document/:name', function(req, res){
 
     var name = req.params.name;
     var sql = 'SELECT * FROM diseases WHERE name = ?';
 
     con.query(sql, [name], function(err, name, fields){
-        
-        var contents = req.params.contents;
-        //var sql = 'SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = diseases';
-        var sql = 'SELECT * FROM types';
-
-        con.query(sql, [name, contents], function(err, contents, fields){
-            res.render('document/document', {names:name, contents:contents});
-            console.log(name);
-            console.log(contents);
-        })
-
+        res.render('document/document', {names:name});
+        console.log(name);
     })
-
 })
+
 
 app.get('/favorite', function(req,res){
 
