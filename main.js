@@ -60,15 +60,22 @@ app.get('/search',function(req, res){
 
 });
 
-/*app.post('/search', function (req, res) {
+app.post('/search', function (req, res) {
     console.log(req.body.search_keyword);
-    res.render('search/search');
-});*/
+    console.log('post /search 실행됨');
+    res.redirect('/search/'+ req.body.search_keyword);
+});
 
-/*app.get('/search/:keyword', function (req, res) {
+/*app.post('/search/:keyword', function (req, res) {
+
+    console.log('post /search/:keyword 실행됨 ');
     var keyword = req.body.search_keyword;
-    res.send(keyword);
-})*/
+    var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
+
+    con.query(sql, function(err, names, fields){
+        res.render('search/search', {name:names});
+    });
+});*/
 
 
 app.get('/document/:name', function(req, res){
