@@ -69,7 +69,7 @@ function loadFavorites() {
         let output = '';
         for (let i = 0; i < loadList.length; i++){
             if(loadList[i] !== null){
-                output += '<a href = "'+ loadList[i] + '" class="list-group-item list-group-item-action">'+ loadList[i] + '</a>';
+                output += '<a href = "/document/'+ loadList[i] + '" class="list-group-item list-group-item-action">'+ loadList[i] + '</a>';
             }
         }
         $("#favorite_list")[0].innerHTML = output;//jqeury selector 찾아보기, appendChild

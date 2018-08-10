@@ -10,8 +10,8 @@ var fs = require('fs');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: '111111',
-	database: 'testdb'
+	password: 'dlwnsgk94',
+	database: 'dic'
   });
 
 //Establish MySQL connection
@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 values = [];
 
 // String 형식으로 받음. 
-var jsondata = fs.readFileSync("C:/Users/sub/Documents/translation/test2.json", 'utf8');
+var jsondata = fs.readFileSync("./test.json", 'utf8');
 var modified = JSON.parse(jsondata.trim());
 
 
@@ -53,7 +53,7 @@ for (var i = 0; i <= Object.keys(modified.diseases).length-1; i++) {
       }
 
 // MySQL insert query  
-connection.query('INSERT INTO test3 (name, general_discussion, symptoms, casues, diagnosis, treatment, bibliography_site, etc, hospital, supervision) VALUES ?', [values], function(err,result) {
+connection.query('INSERT INTO diseases (name, sum, symptom, cause, diagnosis, treat, site, etc, institution, supervisor) VALUES ?', [values], function(err,result) {
   if(err) {
                     console.log(err.toString());
           } else {
