@@ -17,12 +17,16 @@
 
 // home 페이지에서 검색할 때.
 function search_wizard_home() {
-    var input, filter, dict_list, li_tag, a_tag, i;
+    var input; //, filter, dict_list, li_tag, a_tag, i;
     input = JSON.parse(localStorage.getItem('search_history')); // input tag id
-    filter = input[-1].value.toUpperCase(); // 대문자로 바뀐 input 값(검색어) 가져오기
+    //filter = input[-1].value.toUpperCase(); // 대문자로 바뀐 input 값(검색어) 가져오기
     document.getElementById('search_search').value = input[-1];
 
-    dict_list = document.getElementById('dictionary'); // 사전목록 가져오기
+    search_btn_search.value = input[-1];
+    search_btn_search.addEventListener('click', search_wizard);
+
+
+/*    dict_list = document.getElementById('dictionary'); // 사전목록 가져오기
     li_tag = dict_list.getElementsByTagName('li'); // 목록 중 li tag 가져오기
     for (i = 0; i < li_tag.length; i++) {
         a_tag = li_tag[i].getElementsByTagName("a")[0]; // li tag 안의 a 태그
@@ -32,7 +36,7 @@ function search_wizard_home() {
         } else {
             li_tag[i].style.display = "none";// 숨기기
         }
-    }
+    }*/
 }
 
 // search 페이지에서 검색할 때

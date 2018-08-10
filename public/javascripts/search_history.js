@@ -62,9 +62,14 @@ $(function () {
     $("#go_to_home_nav").on("click", show_history());
 });
 
-$(function () {
+/*$(function () {
     $("#history_log").on("click", search_history());
-});
+});*/
+
+const search_button = document.forms['search_form_home'].querySelector('button');
+search_button.addEventListener('click', function (e) {
+    location.href = '/search';
+})
 
 /*
 $("#history_log").on({

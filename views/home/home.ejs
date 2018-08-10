@@ -13,7 +13,7 @@
             <div class="form-check-inline mb-4">
                 <form class="form-inline" id="search_form_home">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="home_search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="history_log">검색하기</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="history_log" onclick="search_history()">검색하기</button>
                 </form>
                 <button type="button" class="btn btn-outline-secondary ml-sm-2 mr-sm-2" onclick = "location.href = '/search' ">사전목록</button>
                 <button type="button" class="btn btn-outline-warning mr-sm-0" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
@@ -35,5 +35,6 @@
         </div>
         </div>
         <script src="/javascripts/favorite_manager.js"></script>
+        <script src="/javascripts/search_history.js"></script>
     </body>
 </html>
