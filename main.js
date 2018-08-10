@@ -17,7 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- password: 'dlwnsgk94',
+ //password: 'dlwnsgk94',//joon
+ password: '1648',
  database : 'dic'
  });
 
@@ -35,7 +36,8 @@ app.get('/', function(req,res){
 
 app.get('/home', function(req,res){
 
-    var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1'; //ellene
+    //var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1'; //joon
+    var sql = 'SELECT * FROM disease ORDER BY RAND() LIMIT 1'; //ellene
 
     con.query(sql, function (err, name) {
         res.render('home/home', {name: name});
@@ -44,7 +46,7 @@ app.get('/home', function(req,res){
 });
 
 app.get('/search',function(req, res){
-    var sql = 'SELECT * FROM diseases';
+    var sql = 'SELECT * FROM disease';
     con.query(sql, function(err, names, fields){
         res.render('search/search', {name:names});
     })
@@ -54,7 +56,7 @@ app.get('/search',function(req, res){
 app.get('/document/:name', function(req, res){
 
     var name = req.params.name;
-    var sql = 'SELECT * FROM diseases WHERE name = ?';
+    var sql = 'SELECT * FROM disease WHERE name = ?';
 
     con.query(sql, [name], function(err, name, fields){
         res.render('document/document', {names:name});

@@ -1,21 +1,35 @@
 // 검색버튼 눌렀을 때 호출되는 함수
-function search_history(){
+function search_history() {
     const search_term = document.querySelector('#home_search').value;//이름 확실하게
-  if(search_term !== '') {
-      if(!localStorage.hasOwnProperty('search_history')){
-          localStorage.setItem('search_history', search_term);
-          console.log("히스토리 생성");
-      }else{
-          var history_list = JSON.parse(localStorage.getItem('search_history'));
-          history_list[history_list.length] = search_term;
-          localStorage.setItem('search_history', JSON.stringify(history_list));
-          console.log("히스토리 생성");
-      }
-      history_process(history_list);
-  }else{
-    console.log("검색어 없음");
-  }
+    if (search_term !== '') {
+        var history_list = JSON.parse(localStorage.getItem('search_history'));
+        if(history_list !== null){
+            history_list[history_list.length] = search_term;
+        }else {
+            history_list = [search_term];
+        }
+        localStorage.setItem('search_history', JSON.stringify(history_list));
+        console.log("히스토리 생성");
+        history_process(history_list);
+    }
 }
+/*function search_history(){
+    if(document.querySelector('#home_search').value !== '') {
+        const search_term = document.querySelector('#home_search').value;//이름 확실하게
+        if(localStorage.getItem('search_history') !== null){
+            var history_list = JSON.parse(localStorage.getItem('search_history'));
+            history_list[history_list.length] = search_term;
+            localStorage.setItem('search_history', JSON.stringify(history_list));
+            console.log("히스토리 생성");
+        }else{
+            localStorage.setItem('search_history', JSON.stringify(search_term));
+            console.log("히스토리 생성");
+        }
+        history_process(history_list);
+    }else{
+        console.log("검색어 없음");
+    }
+}*/
 
 // nav-bar 홈 버튼 눌렀을 때 호출되는 함수
 function show_history() {
@@ -48,7 +62,12 @@ $(function () {
     $("#go_to_home_nav").on("click", show_history());
 });
 
-
 $(function () {
     $("#history_log").on("click", search_history());
 });
+
+/*
+$("#history_log").on({
+    keyup: search_wizard_home(),
+    click: search_history()
+});*/
