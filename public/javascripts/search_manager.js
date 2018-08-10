@@ -15,7 +15,8 @@
 }*/
 // TODO LocalStorage 에 저장된 검색 기록을 이용해보자!
 
-// home 페이지에서 검색할 때.
+
+/*// home 페이지에서 검색할 때.
 function search_wizard_home() {
     var input; //, filter, dict_list, li_tag, a_tag, i;
     input = JSON.parse(localStorage.getItem('search_history')); // input tag id
@@ -26,7 +27,7 @@ function search_wizard_home() {
     search_btn_search.addEventListener('click', search_wizard);
 
 
-/*    dict_list = document.getElementById('dictionary'); // 사전목록 가져오기
+/!*    dict_list = document.getElementById('dictionary'); // 사전목록 가져오기
     li_tag = dict_list.getElementsByTagName('li'); // 목록 중 li tag 가져오기
     for (i = 0; i < li_tag.length; i++) {
         a_tag = li_tag[i].getElementsByTagName("a")[0]; // li tag 안의 a 태그
@@ -36,8 +37,16 @@ function search_wizard_home() {
         } else {
             li_tag[i].style.display = "none";// 숨기기
         }
-    }*/
-}
+    }*!/
+}*/
+
+
+    /*var keyword = $('form').serialize();
+    console.log(keyword);*/
+
+    var keyword = document.forms['search_form_home'].elements['search_keyword'].value;
+    console.log(keyword);
+
 
 // search 페이지에서 검색할 때
 function search_wizard() {
