@@ -12,7 +12,6 @@ var staticResource = path.join(__dirname, '/public');
 app.use(express.static(staticResource));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 // mysql 연결
 var mysql = require('mysql');
 var con = mysql.createConnection({
@@ -45,42 +44,61 @@ app.get('/home', function(req,res){
 
 });
 
+app.post('/home', function(req,res){
 
-app.get('/search',function(req, res){
+    var keyword = req.body.keyword;
+
+    var sql = "SELECT * FROM diseases WHERE name LIKE '%"+keyword+"%'"; // 수정필요
+
+    con.query(sql, [keyword], function(err, names, fields){
+        res.redirect('/search/'+keyword);
+    })
+
+});
+
+app.post('/search',function(req, res){
+
+    var keyword = req.body.keyword;
+
+    var sql = "SELECT * FROM diseases WHERE name LIKE '%"+keyword+"%'"; // 수정필요
+
+    con.query(sql, [keyword], function(err, names, fields){
+        res.redirect('/search/'+keyword);
+    })
+
+});
+
+app.get(['/search','/search/:keyword'], function(req, res){
 
     var sql = 'SELECT * FROM diseases'; // joon
 
     con.query(sql, function(err, names, fields){
-        res.render('search/search', {name:names});
-    });
+        
 
-   /* var searchText = req.query.search_keyword;
-    res.send(searchText);*/
+            var keyword = req.params.keyword;
+            
+            if(keyword){
 
-});
+            var sql = "SELECT * FROM diseases WHERE name LIKE '%"+keyword+"%'";// 수정필요
 
-app.post('/search', function (req, res) {
-    console.log(req.body.search_keyword);
-    console.log('post /search 실행됨');
-    res.redirect('/search/'+ req.body.search_keyword);
-});
+            con.query(sql, [keyword], function(err, names, fields){
+                res.render('search/search', {name: names});
+                console.log(names);
+            })
+            }else{
+       
+          res.render('search/search', {name: names});
 
-app.post('/search/:keyword', function (req, res) {
+        }
+    })
 
-    console.log('post /search/:keyword 실행됨 ');
-    var keyword = req.body.search_keyword;
-    var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
+})
 
-    con.query(sql, function(err, names, fields){
-        res.render('search/search', {name:names});
-    });
-});
 
 app.get('/document/:name', function(req, res){
 
     var name = req.params.name;
     var sql = 'SELECT * FROM diseases WHERE name = ?';
-
 
     con.query(sql, [name], function(err, name, fields){
         res.render('document/document', {names:name});

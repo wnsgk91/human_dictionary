@@ -51,7 +51,7 @@ function search_wizard_home() {
 // search 페이지에서 검색할 때
 function search_wizard() {
     var input, filter, dict_list, li_tag, a_tag, i;
-    input = document.getElementById('search_search'); // input tag id
+    input = document.getElementById('home_search'); // input tag id
     filter = input.value.toUpperCase(); // 대문자로 바뀐 input 값(검색어) 가져오기
 
     dict_list = document.getElementById('dictionary'); // 사전목록 가져오기
@@ -133,7 +133,4 @@ search_wizard.addEventListener('keyup', function (e) {
         const pass_input = document.getElementById('home_search').value;
     }
 });*/
-
-
-
 
