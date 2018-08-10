@@ -46,7 +46,9 @@ function history_process(history_list){
 // 히스토리 지우기
 function delete_history(){
   localStorage.removeItem('search_history');
-  show_history();
+  window.loaction.reload();
+  
+  //show_history();
 }
 
 

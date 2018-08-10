@@ -81,7 +81,7 @@ $(function () {
     $("#clear_fav").on("click", function () {
         const list = document.getElementsByClassName('list-group');
         $(list).remove();
-        localStorage.clear();
+        localStorage.removeItem('myFavList');
     });
 });
 
