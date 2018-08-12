@@ -17,8 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- //password: 'dlwnsgk94',//joon
- password: '1648', //ellene
+ password: 'dlwnsgk94',//joon
+ //password: '1648', //ellene
  database : 'dic'
  });
 
@@ -70,7 +70,6 @@ app.get(['/search','/search/:keyword'], function(req, res){
       //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
       con.query(sql, [keyword], function(err, names, fields){
         res.render('search/search', {name: names});
-        console.log(names);
       })
     }else{
       res.render('search/search', {name: names});
