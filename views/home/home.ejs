@@ -4,19 +4,17 @@
     <% include ../header.ejs %>
   </head>
   <body>
-    <!-- Page Content -->
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
-          <!-- 검색바 -->
           <div class="col-lg-12 mb-4">
-            <form class="form-inline" id="search_form_home" action="/search" method="post" >
-              <input class="form-control mr-sm-2 mt-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name="keyword">
-              <button class="btn btn-outline-success mr-sm-2 mt-2 ml-2" type="submit" id="history_log" onclick="search_history();">검색하기</button>
-              <button type="button" class="btn btn-outline-info mr-sm-2 mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
-              <button type="button" class="btn btn-outline-warning mr-sm-2 mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
-              <button type="button" class="btn btn-outline-secondary mt-2 ml-2" onclick = "delete_history();">기록삭제</button>
+            <form class="form" id="search_form" action="/search" method="post">
+              <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+              <button class="btn btn-outline-secondary mt-2 ml-2" type="submit"  onclick="search_history()">검색하기</button>
+              <button type="button" class="btn btn-outline-secondary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
+              <button type="button" class="btn btn-outline-secondary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
+              <button type="button" class="btn btn-outline-secondary mt-2 ml-2" onclick = "delete_history();">검색기록 삭제</button>
             </form>
           </div>
         </div>
@@ -24,7 +22,6 @@
         <div class="card my-sm-2">
           <div class="card-header" style="text-align: center;">최근 검색기록</div>
           <ul class="list-group list-group-flush" style="text-align: center;" id="history_place">
-            <!-- 검색어 히스토리가 들어가는 부분 -->
           </ul>
         </div>
         </div>

@@ -53,6 +53,7 @@ function loadFavorites() {
   }
 }
 
+// 즐겨찾기 삭제.
 function rmv_favorite(){
     loadList = JSON.parse(localStorage.getItem("myFavList"));
     myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
