@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <% include ../header.ejs %>
-	</head>
-	<body>
-		<!-- 소제목 & Searchbar -->
-		<nav class="navbar navbar-light bg-light justify-content-between">
-		  <a class="navbar-brand">사전목록</a>
-		  <form class="form-inline" id="search_form" action="/search" method="post">
-			<input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit"  onclick="search_history()">Search</button>
-		  </form>
-		</nav>
-		<!-- 전체 목록이 들어가는 부분 -->
-		<div class="list-group" id="dictionary">
-			<% if(name.length == 0){%>
-				<br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
-			<% }else{ %>
-
-			<% for(var i = 0; i< name.length; i++){%>
-				<li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></li>
-			<% }} %>
-		</div>
-		<script src="/javascripts/search_history.js"></script>
-	</body>
+<head>
+  <% include ../header.ejs %>
+</head>
+<body>
+  <!-- 소제목 & Searchbar -->
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">사전목록</a>
+    <form class="form-inline" id="search_form" action="/search" method="post">
+      <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  onclick="search_history()">Search</button>
+    </form>
+  </nav>
+  <!-- 전체 목록이 들어가는 부분 -->
+  <div class="list-group" id="dictionary">
+    <% if (name.length == 0) { %>
+      <br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
+    <% } else { %>
+    <% for (var i = 0; i< name.length; i++) { %>
+      <li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></li>
+    <% }
+    } %>
+  </div>
+  <script src="/javascripts/search_history.js"></script>
+  <script src="/javascripts/search_manager.js"></script>
+</body>
 </html>

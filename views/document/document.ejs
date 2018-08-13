@@ -4,43 +4,43 @@
 <% include ../header.ejs %>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid">
-  <div class="container"><br/><br/>
-    <h1 class="display-4" id="title"><%= names[0].name %></h1><br/>
-    <p>
-      <button type="button" class="btn btn-outline-info" id="add">즐겨찾기 추가</button>
-      <button type="button" class="btn btn-outline-info" id="rmv">즐겨찾기 삭제</button>
-    </p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container"><br/><br/>
+      <h1 class="display-4" id="title"><%= names[0].name %></h1><br/>
+      <p>
+        <button type="button" class="btn btn-outline-info" id="add">즐겨찾기 추가</button>
+        <button type="button" class="btn btn-outline-info" id="rmv">즐겨찾기 삭제</button>
+      </p>
+    </div>
   </div>
-</div>
-<div class="card text-center">
-<!--카드 소제목 버튼-->
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-sum-tab" data-toggle="tab" href="#nav-sum" role="tab" aria-controls="nav-sum" aria-selected="true">개요</a>
-    <a class="nav-item nav-link" id="nav-symptom-tab" data-toggle="tab" href="#nav-symptom" role="tab" aria-controls="nav-symptom" aria-selected="false">증상</a>
-    <a class="nav-item nav-link" id="nav-cause-tab" data-toggle="tab" href="#nav-cause" role="tab" aria-controls="nav-cause" aria-selected="false">원인</a>
-    <a class="nav-item nav-link" id="nav-diagnosis-tab" data-toggle="tab" href="#nav-diagnosis" role="tab" aria-controls="nav-diagnosis" aria-selected="false">진단</a>
-    <a class="nav-item nav-link" id="nav-treat-tab" data-toggle="tab" href="#nav-treat" role="tab" aria-controls="nav-treat" aria-selected="false">치료</a>
-    <a class="nav-item nav-link" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="false">참고자료</a>
-    <a class="nav-item nav-link" id="nav-institution-tab" data-toggle="tab" href="#nav-institution" role="tab" aria-controls="nav-institution" aria-selected="false">의료기관</a>
-    <a class="nav-item nav-link" id="nav-supervisor-tab" data-toggle="tab" href="#nav-supervisor" role="tab" aria-controls="nav-supervisor" aria-selected="false">감수</a>
-    <a class="nav-item nav-link" id="nav-etc-tab" data-toggle="tab" href="#nav-etc" role="tab" aria-controls="nav-etc" aria-selected="false">기타</a>
+  <div class="card text-center">
+    <!--카드 소제목 버튼-->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-sum-tab" data-toggle="tab" href="#nav-sum" role="tab" aria-controls="nav-sum" aria-selected="true">개요</a>
+        <a class="nav-item nav-link" id="nav-symptom-tab" data-toggle="tab" href="#nav-symptom" role="tab" aria-controls="nav-symptom" aria-selected="false">증상</a>
+        <a class="nav-item nav-link" id="nav-cause-tab" data-toggle="tab" href="#nav-cause" role="tab" aria-controls="nav-cause" aria-selected="false">원인</a>
+        <a class="nav-item nav-link" id="nav-diagnosis-tab" data-toggle="tab" href="#nav-diagnosis" role="tab" aria-controls="nav-diagnosis" aria-selected="false">진단</a>
+        <a class="nav-item nav-link" id="nav-treat-tab" data-toggle="tab" href="#nav-treat" role="tab" aria-controls="nav-treat" aria-selected="false">치료</a>
+        <a class="nav-item nav-link" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="false">참고자료</a>
+        <a class="nav-item nav-link" id="nav-institution-tab" data-toggle="tab" href="#nav-institution" role="tab" aria-controls="nav-institution" aria-selected="false">의료기관</a>
+        <a class="nav-item nav-link" id="nav-supervisor-tab" data-toggle="tab" href="#nav-supervisor" role="tab" aria-controls="nav-supervisor" aria-selected="false">감수</a>
+        <a class="nav-item nav-link" id="nav-etc-tab" data-toggle="tab" href="#nav-etc" role="tab" aria-controls="nav-etc" aria-selected="false">기타</a>
+      </div>
+    </nav>
+    <!--카드 내용-->
+    <div class="tab-content" id="nav-tabContent" style="line-height: 30px; text-align: left; text-indent: 10px;">
+      <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
+    </div>
   </div>
-</nav>
-<!--카드 내용-->
-<div class="tab-content" id="nav-tabContent" style="line-height: 30px; text-align: left; text-indent: 10px;">
-  <div class="tab-pane fade show active" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
-  <div class="tab-pane fade" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
-  <div class="tab-pane fade" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause %></div>
-  <div class="tab-pane fade" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis %></div>
-  <div class="tab-pane fade" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat %></div>
-  <div class="tab-pane fade" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site %></div>
-  <div class="tab-pane fade" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution %></div>
-  <div class="tab-pane fade" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor %></div>
-  <div class="tab-pane fade" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
-</div>
-</div>
   <script src="/javascripts/favorite_manager.js"></script>
 </body>
 </html>
