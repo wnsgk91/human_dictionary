@@ -17,8 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- //password: 'dlwnsgk94',//joon
- password: '1648', //ellene
+ password: 'dlwnsgk94',//joon
+ //password: '1648', //ellene
  database : 'dic'
  });
 
@@ -50,16 +50,6 @@ app.post('/home', function(req,res){
   })
 });
 
-//search 페이지에서 검색
-app.post('/search',function(req, res){
-  var keyword = req.body.keyword;
-  var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
-  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  con.query(sql, [keyword], function(err, names, fields){
-    res.redirect('/search/'+keyword);
-  })
-});
-
 //search 페이지 결과
 app.get(['/search','/search/:keyword'], function(req, res){
   var sql = 'SELECT * FROM diseases';
@@ -75,6 +65,16 @@ app.get(['/search','/search/:keyword'], function(req, res){
       res.render('search/search', {name: names});
     }
     })
+});
+
+//search 페이지에서 검색
+app.post('/search',function(req, res){
+  var keyword = req.body.keyword;
+  var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
+  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
+  con.query(sql, [keyword], function(err, names, fields){
+    res.redirect('/search/'+keyword);
+  })
 });
 
 // 항목 자세히 보기
