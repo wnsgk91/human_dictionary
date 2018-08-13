@@ -2,7 +2,7 @@
 function search_history() {
   const search_term = document.querySelector('#home_search').value;//이름 확실하게
   if (search_term !== '') {
-    var history_list = JSON.parse(localStorage.getItem('search_history'));
+    let history_list = JSON.parse(localStorage.getItem('search_history'));
 
     if(history_list !== null){
       history_list[history_list.length] = search_term;
