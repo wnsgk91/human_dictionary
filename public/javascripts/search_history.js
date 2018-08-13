@@ -34,7 +34,7 @@ function history_process(history_list){
   let history_banner = '';
   for (let i = 0; i< five_items.length; i++) {
     if(five_items[i] !== ''){
-      history_banner += '<a class="dropdown-item" href="#">' + five_items[i] + '</a>';
+      history_banner += '<li class="list-group-item">' + five_items[i] + '</li>';
     }
   }
   const show = document.getElementById('history_place');
