@@ -46,24 +46,21 @@ function loadFavorites() {
     let output = '';
     for (let i = 0; i < loadList.length; i++){
       if(loadList[i] !== null){
-        output += '<li class="list-group-item"><a href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><button type="submit" class="btn btn-outline-info float-right" onclick="rmv_favorite();">즐겨찾기 삭제</button></li>';
+        output += '<li class="list-group-item"><a id = "title" href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><button type="submit" class="btn btn-outline-info float-right" onclick="rmv_favorite();">즐겨찾기 삭제</button></li>';
       }
-    document.getElementById("favorite_list").innerHTML = output;//jqeury selector 찾아보기, appendChild
-
-    if(document.getElementById("favorite_list") !== null){
-      document.getElementById("favorite_list").innerHTML = output;
     }
+    document.getElementById("favorite_list").innerHTML = output;
   }
 }
 
 // 즐겨찾기 삭제.
 function rmv_favorite(){
-    loadList = JSON.parse(localStorage.getItem("myFavList"));
+    loadList = document.getElementById('title').innerHTML ;
     myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
 
     if (myFavoriteList !== null) {
       for (let i = 0; i < myFavoriteList.length; i++) {
-        if (loadList[i] === myFavoriteList[i]) {
+        if (loadList === myFavoriteList[i]){
           var index = i;
           var exists = true;
         }
@@ -73,11 +70,10 @@ function rmv_favorite(){
         localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
         alert("즐겨찾기 목록에서 삭제되었습니다");
         window.location.reload(true);
-
-      } else {
-        alert("이미 제거되었습니다.");
+      }else{
+        alert(loadList+"이미 제거되었습니다.");
       }
-    } else {
+    }else{
       alert("즐겨찾기 목록에 없습니다");
     }
 }
