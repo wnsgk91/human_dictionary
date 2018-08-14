@@ -49,7 +49,9 @@ function loadFavorites() {
         output += '<li class="list-group-item"><a href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><button type="submit" class="btn btn-outline-info float-right" onclick="rmv_favorite();">즐겨찾기 삭제</button></li>';
       }
     }
-    $("#favorite_list")[0].innerHTML = output;//jqeury selector 찾아보기, appendChild
+    if(document.getElementById("favorite_list") !== null){
+      document.getElementById("favorite_list").innerHTML = output;
+    }
   }
 }
 
