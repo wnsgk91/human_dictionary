@@ -1,14 +1,3 @@
-// home 페이지에서 검색할 때.
-function search_wizard_home() {
-    var input; //, filter, dict_list, li_tag, a_tag, i;
-    input = JSON.parse(localStorage.getItem('search_history')); // input tag id
-    //filter = input[-1].value.toUpperCase(); // 대문자로 바뀐 input 값(검색어) 가져오기
-    document.getElementById('search_search').value = input[-1];
-
-    search_btn_search.value = input[-1];
-    search_btn_search.addEventListener('click', search_wizard);
-}
-
 // search 페이지에서 검색할 때
 function search_wizard() {
     var input, filter, dict_list, li_tag, a_tag, i;
@@ -30,6 +19,3 @@ function search_wizard() {
 
 const search_btn_search = document.forms['search_form'].querySelector('input');
 search_btn_search.addEventListener('keyup', search_wizard);
-
-const search_btn_home = document.querySelector('#history_log');
-search_btn_home.addEventListener('click', search_wizard_home);
