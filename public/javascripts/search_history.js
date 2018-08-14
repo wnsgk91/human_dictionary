@@ -3,27 +3,20 @@ function search_history() {
   const search_term = document.getElementById("home_search").value;//이름 확실하게
   if (search_term !== '') {
     let history_list = JSON.parse(localStorage.getItem('search_history'));
-
     if(history_list !== null){
       history_list[history_list.length] = search_term;
-
     }else {
       history_list = [search_term];
     }
     localStorage.setItem('search_history', JSON.stringify(history_list));
-    console.log("히스토리 생성");
-    history_process(history_list);
   }
 }
 
 // nav-bar 홈 버튼 눌렀을 때 호출되는 함수
 function show_history() {
-  if(localStorage.getItem('search_history') !== null) {
+  if(localStorage.getItem('search_history') !== null && document.getElementById('history_place') !== null ) {
     const history_list = JSON.parse(localStorage.getItem('search_history'));
     history_process(history_list);
-
-  }else{
-  console.log('search_history 존재하지 않음');
   }
 }
 

@@ -17,12 +17,10 @@
 			<% if(name.length == 0){%>
 				<br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
 			<% }else{ %>
-
 			<% for(var i = 0; i< name.length; i++){%>
 				<li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></li>
 			<% }} %>
 		</div>
-		<script src="/javascripts/search_history.js"></script>
 		<script src="/javascripts/search_manager.js"></script>
 	</body>
 </html>
