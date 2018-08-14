@@ -42,14 +42,14 @@ function loadFavorites() {
   loadList = JSON.parse(localStorage.getItem("myFavList"));
   console.log(loadList);
 
-  if( loadList != null){
+  if( loadList != null && document.getElementById("favorite_list") !== null){
     let output = '';
     for (let i = 0; i < loadList.length; i++){
       if(loadList[i] !== null){
         output += '<li class="list-group-item"><a href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><button type="submit" class="btn btn-outline-info float-right" onclick="rmv_favorite();">즐겨찾기 삭제</button></li>';
       }
     }
-    $("#favorite_list")[0].innerHTML = output;//jqeury selector 찾아보기, appendChild
+    document.getElementById("favorite_list").innerHTML = output;//jqeury selector 찾아보기, appendChild
   }
 }
 
