@@ -1,6 +1,6 @@
 // 검색버튼 눌렀을 때 호출되는 함수
 function search_history() {
-  const search_term = document.querySelector('#home_search').value;//이름 확실하게
+  const search_term = document.getElementById("home_search").value;//이름 확실하게
   if (search_term !== '') {
     let history_list = JSON.parse(localStorage.getItem('search_history'));
 
@@ -51,10 +51,4 @@ function delete_history(){
 //이벤트 처리
 $(function () {
   $("#go_to_home_nav").on("click", show_history());
-});
-
-const search_button = document.forms['search_form_home'].querySelector('button');
-
-search_button.addEventListener('click', function (e) {
-location.href = '/search';
 });
