@@ -23,15 +23,13 @@ function show_history() {
 // 중복되는 for 문
 function history_process(history_list){
   const five_items = history_list.slice(-5);
-  console.log(five_items);
   let history_banner = '';
-  for (let i = 0; i< five_items.length; i++) {
+  for (let i = 4; i >= 0; i--){
     if(five_items[i] !== ''){
       history_banner += '<li class="list-group-item" ><a href="/search/'+ five_items[i] +'">' + five_items[i] + '</a></li>';
     }
   }
   const show = document.getElementById('history_place');
-  console.log(show);
   show.innerHTML = history_banner;
 }
 
