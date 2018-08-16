@@ -14,7 +14,7 @@
 		</nav>
 		<!-- 전체 목록이 들어가는 부분 -->
 		<div class="list-group" id="dictionary">
-			<% if(name.length == 0){%>
+			<% if(name == null || name.length == 0){%>
 				<br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
 			<% }else{ %>
 			<% for(var i = 0; i< name.length; i++){%>

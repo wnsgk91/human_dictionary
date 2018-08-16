@@ -44,7 +44,6 @@ app.get('/home', function(req,res){
 app.post(['/home','/search'], function(req,res){
   var keyword = req.body.keyword;
   var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
   con.query(sql, [keyword], function(err, names, fields){
     res.redirect('/search/'+keyword);
   })
@@ -56,10 +55,10 @@ app.get(['/search','/search/:keyword'], function(req, res){
   con.query(sql, function(err, names, fields){
     var keyword = req.params.keyword;
     if(keyword){
-      var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
-      //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
+      var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
       con.query(sql, [keyword], function(err, names, fields){
         res.render('search/search', {name: names});
+        console.log(names);
       })
     }else{
       res.render('search/search', {name: names});
