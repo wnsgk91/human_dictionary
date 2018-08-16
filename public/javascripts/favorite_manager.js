@@ -1,79 +1,73 @@
 // document 페이지에서 즐겨찾기 추가 버튼 눌렀을 때
 $(function () {
   $("#add").on("click", function () {
-    try {
-      let myFavoriteList;
-      const favToAdd = $("#title")[0].textContent;
-      //console.log(favToAdd);
-      myFavoriteList= JSON.parse(localStorage.getItem("myFavList"));
-
-      if (myFavoriteList === null) {
-        myFavoriteList = [favToAdd];
-        localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
-        alert("즐겨찾기에 추가되었습니다");
-
-      } else {
-
-        myFavoriteList= JSON.parse(localStorage.getItem("myFavList"));
-        for (let i = 0; i < myFavoriteList.length; i++) {
-          if (favToAdd === myFavoriteList[i]) {
-              var found = true;
-              alert("즐겨찾기 목록에 존재합니다");
-              break;
-          }
-        }
-        if(!found){
-          myFavoriteList.push(favToAdd);
-          localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
-          alert("즐겨찾기에 추가되었습니다");
+    let myFavoriteList = get_item();
+    const favToAdd = $("#title")[0].textContent;
+    if (myFavoriteList === null) {
+      myFavoriteList = [favToAdd];
+      set_item(myFavoriteList);
+      alert("즐겨찾기에 추가되었습니다");
+    } else {
+      for (let i = 0; i < myFavoriteList.length; i++) {
+        if (favToAdd === myFavoriteList[i]) {
+            var found = true;
+            alert("즐겨찾기 목록에 존재합니다");
+            break;
         }
       }
-    }
-    catch (e) {
-        console.log(e);
+      if(!found){
+        myFavoriteList.push(favToAdd);
+        set_item(myFavoriteList);
+        alert("즐겨찾기에 추가되었습니다");
+      }
     }
   });
 });
 
 // favorite 페이지에 목록 로딩해주기
 function loadFavorites() {
-  //console.log("즐겨찾기 목록 불러오는 중");
-  let loadList;
-  loadList = JSON.parse(localStorage.getItem("myFavList"));
-
-  if( loadList != null && document.getElementById("favorite_list") !== null){
+  let loadList = get_item();
+  let showFav = document.getElementById("favorite_list");//즐겨찾기 목록 로딩되는 부분
+  if( (loadList != null) && (showFav !== null)){
     let output = '';
     for (let i = 0; i < loadList.length; i++){
       if(loadList[i] !== null){
         output += '<li class="list-group-item"><a id = "title" href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><button type="submit" class="btn btn-outline-info float-right" onclick="rmv_favorite();">즐겨찾기 삭제</button></li>';
       }
     }
-    document.getElementById("favorite_list").innerHTML = output;
+   showFav.innerHTML = output;
   }
 }
 
 // 즐겨찾기 삭제.
 function rmv_favorite(){
-    myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
-
-    if (myFavoriteList !== null) {
-      for (let i = 0; i < myFavoriteList.length; i++) {
-        if (document.getElementById('title').innerHTML === myFavoriteList[i]){
-          var index = i;
-          var exists = true;
-        }
+  var myFavoriteList = get_item();
+  if (myFavoriteList !== null) {
+    for (let i = 0; i < myFavoriteList.length; i++) {
+      if (document.getElementById('title').innerHTML === myFavoriteList[i]){
+        var index = i;
+        var exists = true;
       }
-      if(exists){
-        delete myFavoriteList[index];
-        localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
-        alert("즐겨찾기 목록에서 삭제되었습니다");
-        window.location.reload(true);
-      }else{
-        alert("이미 제거되었습니다.");
-      }
-    }else{
-      alert("즐겨찾기 목록에 없습니다");
     }
+    if(exists){
+      delete myFavoriteList[index];
+      set_item(myFavoriteList);
+      alert("즐겨찾기 목록에서 삭제되었습니다");
+      window.location.reload(true);
+    }else{
+      alert("이미 제거되었습니다.");
+    }
+  }else{
+    alert("즐겨찾기 목록에 없습니다");
+  }
+}
+
+function get_item(){
+  return JSON.parse(localStorage.getItem("myFavList"));
+}
+
+function set_item(myFavoriteList){
+  localStorage.setItem("myFavList", JSON.stringify(myFavoriteList));
 }
 
 //favorite 페이지 목록 모두 지우기.
