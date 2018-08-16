@@ -1,6 +1,6 @@
 // 검색버튼 눌렀을 때 호출되는 함수
 function search_history() {
-  const search_term = document.getElementById("home_search").value;//이름 확실하게
+  const search_term = document.getElementById("home_search").value;
   if (search_term !== '') {
     let history_list = JSON.parse(localStorage.getItem('search_history'));
     if(history_list !== null){
@@ -24,19 +24,18 @@ function show_history() {
 function history_process(history_list){
   const five_items = history_list.slice(-5);
   let history_banner = '';
-  for (let i = 4; i >= 0; i--){
+  for (let i = five_items.length-1; i >= 0; i--){
     if(five_items[i] !== ''){
       history_banner += '<li class="list-group-item" ><a href="/search/'+ five_items[i] +'">' + five_items[i] + '</a></li>';
     }
   }
-  const show = document.getElementById('history_place');
-  show.innerHTML = history_banner;
+  document.getElementById('history_place').innerHTML = history_banner;
 }
 
 // 히스토리 지우기
 function delete_history(){
   localStorage.removeItem('search_history');
-  window.location.reload(true);
+  window.location.reload(true);  
 }
 
 //이벤트 처리

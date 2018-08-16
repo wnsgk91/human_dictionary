@@ -54,12 +54,11 @@ function loadFavorites() {
 
 // 즐겨찾기 삭제.
 function rmv_favorite(){
-    loadList = document.getElementById('title').innerHTML ;
     myFavoriteList = JSON.parse(localStorage.getItem("myFavList"));
 
     if (myFavoriteList !== null) {
       for (let i = 0; i < myFavoriteList.length; i++) {
-        if (loadList === myFavoriteList[i]){
+        if (document.getElementById('title').innerHTML === myFavoriteList[i]){
           var index = i;
           var exists = true;
         }
@@ -70,7 +69,7 @@ function rmv_favorite(){
         alert("즐겨찾기 목록에서 삭제되었습니다");
         window.location.reload(true);
       }else{
-        alert(loadList+"이미 제거되었습니다.");
+        alert("이미 제거되었습니다.");
       }
     }else{
       alert("즐겨찾기 목록에 없습니다");
