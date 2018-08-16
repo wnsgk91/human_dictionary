@@ -50,10 +50,10 @@ app.post(['/home','/search'], function(req,res){
 app.get(['/search','/search/:keyword'], function(req, res){
   var sql = 'SELECT * FROM diseases';
   con.query(sql, function(err, names, fields){
-    var keyword = req.params.search_key;
+    var keyword = req.params.keyword;
     if(keyword){
         var sql = "SELECT * FROM diseases WHERE name LIKE ?";
-        con.query(sql, ['%' + con.escapeId(keyword, true) + '%'],function(err, keyword, fields){
+        con.query(sql, ['%' + keyword + '%'],function(err, keyword, fields){
           res.render('search/search', {name: keyword});
         })
     }else{
