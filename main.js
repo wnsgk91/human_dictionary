@@ -36,18 +36,14 @@ app.get('/', function(req,res){
 app.get('/home', function(req,res){
   var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1';
   con.query(sql, function (err, name) {
-    res.render('home/home', {name: name});
+    res.render('home/home', {name:name});
   });
 });
 
 //home 페이지에서 검색
 app.post(['/home','/search'], function(req,res){
   var keyword = req.body.keyword;
-  var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  con.query(sql, [keyword], function(err, names, fields){
-    res.redirect('/search/'+keyword);
-  })
+  res.redirect('/search/'+keyword);
 });
 
 //search 페이지 결과
@@ -56,13 +52,14 @@ app.get(['/search','/search/:keyword'], function(req, res){
   con.query(sql, function(err, names, fields){
     var keyword = req.params.keyword;
     if(keyword){
-      var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
+      var sql = "SELECT * FROM diseases WHERE name LIKE '%"+keyword+"%'";
       //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-      con.query(sql, [keyword], function(err, names, fields){
-        res.render('search/search', {name: names});
+      con.query(sql, [keyword], function(err, keyword, fields){
+        res.render('search/search', {name: keyword});
+        console.log(keyword);
       })
     }else{
-      res.render('search/search', {name: names});
+      res.render('search/search', {name:names});
     }
     })
 });
