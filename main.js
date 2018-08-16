@@ -17,8 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- //password: 'dlwnsgk94',//joon
- password: '1648', //ellene
+ password: 'dlwnsgk94',//joon
+ //password: '1648', //ellene
  database : 'dic'
  });
 
@@ -61,8 +61,6 @@ app.get(['/search','/search/:keyword'], function(req, res){
     }
     })
 });
-
-
 
 // 항목 자세히 보기
 app.get('/document/:name', function(req, res){
