@@ -14,7 +14,7 @@ function search_history() {
 
 // nav-bar 홈 버튼 눌렀을 때 호출되는 함수
 function show_history() {
-  if(localStorage.getItem('search_history') !== null && document.getElementById('history_place') !== null ) {
+  if(localStorage.getItem('search_history') !== null && document.getElementById('history_place') !== null ) {//return value 확인
     const history_list = get_history();
     history_process(history_list);
   }

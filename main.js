@@ -52,7 +52,7 @@ app.get(['/search','/search/:keyword'], function(req, res){
   con.query(sql, function(err, names, fields){
     var keyword = req.params.keyword;
     if(keyword){
-        var sql = "SELECT * FROM diseases WHERE name LIKE ?";
+        var sql = "SELECT * FROM diseases WHERE name LIKE ?";//변수명 구분
         con.query(sql, ['%' + keyword + '%'],function(err, keyword, fields){
           res.render('search/search', {name: keyword});
         })
