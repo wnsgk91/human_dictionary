@@ -17,8 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- password: 'dlwnsgk94',//joon
- //password: '1648', //ellene
+ //password: 'dlwnsgk94',//joon
+ password: '1648', //ellene
  database : 'dic'
  });
 
@@ -57,12 +57,17 @@ app.get(['/search','/search/:keyword'], function(req, res){
       con.query(sql, [keyword], function(err, keyword, fields){
         res.render('search/search', {name: keyword});
         console.log(keyword);
+      //keyword = con.escape(keyword);
+      //var sql = "SELECT * FROM diseases WHERE name LIKE '%" + con.escape(keyword) + "%'";
+      //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
       })
     }else{
       res.render('search/search', {name:names});
     }
     })
 });
+
+
 
 // 항목 자세히 보기
 app.get('/document/:name', function(req, res){

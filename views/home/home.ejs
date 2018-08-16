@@ -10,7 +10,7 @@
           <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
           <div class="col-lg-12 mb-4">
             <form class="form" id="search_form" action="/search" method="post">
-              <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+              <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword" autocomplete="on">
               <button class="btn  btn-outline-primary mt-2 ml-2" type="submit"  onclick="search_history()">검색하기</button>
               <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
               <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>

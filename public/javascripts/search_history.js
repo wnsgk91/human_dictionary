@@ -1,8 +1,8 @@
 // 검색버튼 눌렀을 때 호출되는 함수
 function search_history() {
-  const search_term = document.getElementById("home_search").value;
+  const search_term = document.getElementById("home_search").value; //input tag id
   if (search_term !== '') {
-    let history_list = JSON.parse(localStorage.getItem('search_history'));
+    let history_list = get_history();
     if(history_list !== null){
       history_list[history_list.length] = search_term;
     }else {
@@ -15,7 +15,7 @@ function search_history() {
 // nav-bar 홈 버튼 눌렀을 때 호출되는 함수
 function show_history() {
   if(localStorage.getItem('search_history') !== null && document.getElementById('history_place') !== null ) {
-    const history_list = JSON.parse(localStorage.getItem('search_history'));
+    const history_list = get_history();
     history_process(history_list);
   }
 }
@@ -36,6 +36,10 @@ function history_process(history_list){
 function delete_history(){
   localStorage.removeItem('search_history');
   window.location.reload(true);  
+}
+
+function get_history(){
+  return JSON.parse(localStorage.getItem('search_history'));
 }
 
 //이벤트 처리
