@@ -1,12 +1,36 @@
 #history_place {
     text-align: center;
 }
-.star {
-    width: 15px;
-    height: 15px;
+
+#story_text{
+    line-height: 30px;
+    text-align: left;
+    text-indent: 10px;
+}
+.star_solid {
+    width: 20px;
+    height: 20px;
+    background: url("/img/star-solid.svg") no-repeat;
+    display: inline-block;
+    float: right;
+}
+
+.star_regular {
+    width: 20px;
+    height: 20px;
+    background: url("/img/star-regular.svg") no-repeat;
+    display: inline-block;
+    float: right;
+}
+
+.star:hover {
+    width: 20px;
+    height: 20px;
     background: url("https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/star.svg") no-repeat;
     display: inline-block;
+    float: right;
 }
+
 
 @media screen and (max-width: 400px) {
     #history_place {
@@ -14,9 +38,19 @@
     }
 }
 
+
+.dict_list{
+    word-break:break-all;
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0rem 2rem 0rem 0rem;
+}
+
 .form-control {
+    vertical-align: middle;
     display: block;
-    width: 80%;
+    width: 65%;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;

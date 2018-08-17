@@ -22,10 +22,9 @@
     <% if(name == null || name.length == 0){%>
         <br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
     <% }else{ %>
-    <% for(var i = 0; i< name.length; i++){%>
-        <li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a>
-            <!--<div class="star" id="star_id"></div>-->
-            <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/star.svg" class="float-right">
+    <% for(var i = 0; i< name.length; i++){ %>
+        <li class="list-group-item"><a class="dict_list" href="/document/<%= name[i].name %>"><%= name[i].name %></a>
+            <div class="star_regular"></div>
         </li>
     <% }} %>
 </div>
