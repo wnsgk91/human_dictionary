@@ -17,8 +17,8 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- password: 'dlwnsgk94',//joon
- //password: '1648', //ellene
+ //password: 'dlwnsgk94',//joon
+ password: '1648', //ellene
  database : 'dic'
  });
 
@@ -36,18 +36,14 @@ app.get('/', function(req,res){
 app.get('/home', function(req,res){
   var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1';
   con.query(sql, function (err, name) {
-    res.render('home/home', {name: name});
+    res.render('home/home', {name:name});
   });
 });
 
 //home 페이지에서 검색
-app.post('/home', function(req,res){
+app.post(['/home','/search'], function(req,res){
   var keyword = req.body.keyword;
-  var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
-  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  con.query(sql, [keyword], function(err, names, fields){
-    res.redirect('/search/'+keyword);
-  })
+  res.redirect('/search/'+keyword);
 });
 
 //search 페이지 결과
@@ -56,26 +52,17 @@ app.get(['/search','/search/:keyword'], function(req, res){
   con.query(sql, function(err, names, fields){
     var keyword = req.params.keyword;
     if(keyword){
-      var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
-      //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-      con.query(sql, [keyword], function(err, names, fields){
-        res.render('search/search', {name: names});
-      })
+        var sql = "SELECT * FROM diseases WHERE name LIKE ?";//변수명 구분
+        con.query(sql, ['%' + keyword + '%'],function(err, keyword, fields){
+          res.render('search/search', {name: keyword});
+        })
     }else{
-      res.render('search/search', {name: names});
+      res.render('search/search', {name:names});
     }
     })
 });
 
-//search 페이지에서 검색
-app.post('/search',function(req, res){
-  var keyword = req.body.keyword;
-  var sql = "SELECT * FROM diseases WHERE name LIKE '%" + keyword + "%'";
-  //var sql = "SELECT * FROM diseases WHERE name LIKE '%?%'";
-  con.query(sql, [keyword], function(err, names, fields){
-    res.redirect('/search/'+keyword);
-  })
-});
+
 
 // 항목 자세히 보기
 app.get('/document/:name', function(req, res){
