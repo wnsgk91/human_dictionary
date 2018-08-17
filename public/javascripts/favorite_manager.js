@@ -24,6 +24,29 @@ $(function () {
   });
 });
 
+function add_favorite(favToAdd) {
+  let myFavoriteList = get_item();
+  if (myFavoriteList === null) {
+    myFavoriteList = [favToAdd];
+    set_item(myFavoriteList);
+    alert("즐겨찾기에 추가되었습니다");
+  } else {
+    for (let i = 0; i < myFavoriteList.length; i++) {
+      if (favToAdd === myFavoriteList[i]) {
+        var found = true;
+        alert("즐겨찾기 목록에 존재합니다");
+        break;
+      }
+    }
+    if(!found){
+      myFavoriteList.push(favToAdd);
+      set_item(myFavoriteList);
+      alert("즐겨찾기에 추가되었습니다");
+    }
+  }
+}
+
+
 function loadFavorites() {
   let loadList = get_item();
   let showFav = document.getElementById("favorite_list");//즐겨찾기 목록 로딩되는 부분
@@ -68,16 +91,18 @@ function rmv_favorite(){
 //목록에서 한 개 삭제.
 $(function () {
   $("div").on("click svg", function (event) {
-    const rmv_this = $(event.target).closest("li")[0].textContent.trim();
+    if( $(event.target).closest("li")[0] !== undefined) {
+      const rmv_this = $(event.target).closest("li")[0].textContent.trim();
 
     var myFavoriteList = get_item();
     var index = myFavoriteList.indexOf(rmv_this);
 
-    if(index > -1){
-      myFavoriteList.splice(index,1);
-      set_item(myFavoriteList);
-      alert("즐겨찾기 목록에서 삭제되었습니다");
-      window.location.reload(true);
+      if (index > -1) {
+        myFavoriteList.splice(index, 1);
+        set_item(myFavoriteList);
+        alert("즐겨찾기 목록에서 삭제되었습니다");
+        window.location.reload(true);
+      }
     }
   });
 });

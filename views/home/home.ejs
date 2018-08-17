@@ -9,21 +9,26 @@
         <div class="col-lg-12 text-center">
           <h1 class="mt-4 mb-4">반갑습니다! 희귀난치병에 관한 정보를 찾아보세요.</h1>
           <div class="col-lg-12 mb-4">
-            <form class="form" id="search_form" action="/search" method="post">
+            <form class="form-inline mt-2 mt-md-0" id="search_form" action="/search" method="post">
               <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword" autocomplete="on">
               <button class="btn  btn-outline-primary mt-2 ml-2" type="submit"  onclick="search_history()">검색하기</button>
+
+
+            </form>
               <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
               <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
-              <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "delete_history();">검색기록 삭제</button>
-            </form>
           </div>
         </div>
-        <div class="col-lg-12 mb-4">
+        <div class="col-lg-12 mb-4 text-center">
         <div class="card my-sm-2">
           <div class="card-header" style="text-align: center;">최근 검색기록</div>
-          <ul class="list-group list-group-flush" style="text-align: center;" id="history_place">
-          </ul>
+            <div class="card-body" style="text-align: center;">
+          <div  id="history_place">
+          </div>
+                <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">기록삭제</button>
+            </div>
         </div>
+
         </div>
         <div class="col-lg-12 mb-4">
           <div class="card my-sm-2">
