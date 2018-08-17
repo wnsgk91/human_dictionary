@@ -80,9 +80,6 @@
 }
 
 /*header*/
-.navbar-brand {
-    font-size: 1rem;
-}
 .navbar-nav {
     cursor: pointer;
 }

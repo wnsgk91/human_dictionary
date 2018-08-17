@@ -1,0 +1,40 @@
+#home_title_first{
+  margin-bottom: 10px;
+}
+
+#home_search{
+  width: 90%;
+}
+
+
+#search_place{
+  width: 100%;
+}
+
+#history_place {
+  ext-align: center;
+}
+
+#story_text{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* 줄수 */
+  -webkit-box-orient: vertical;
+  word-wrap:break-word; 
+  padding: 1.5px;
+}
+
+.card-body{
+	padding:0;
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+  #home_search{
+    width: 80%;
+  }
+  #home_title{
+	/*font-size: 16px;*/
+  }
+}

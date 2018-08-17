@@ -11,7 +11,7 @@
       <div class="col-lg-12 mb-4">
         <form class="form-inline mt-2 mt-md-0 text-center" id="search_form" action="/search" method="post">
           <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword" autocomplete="on">
-          <button class="btn  btn-outline-primary ml-2" type="submit"  onclick="search_history()">검색하기</button>
+          <button class="btn  btn-outline-success ml-2" type="submit"  onclick="search_history()">검색하기</button>
         </form>
           <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
           <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
@@ -22,7 +22,7 @@
         <div class="card-header">최근 검색기록</div>
         <ul class="list-group list-group-flush" id="history_place"><!--검색기록--></ul>
         <div class="card-body">
-        <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">기록삭제</button>
+        <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">검색기록 삭제</button>
         </div>
       </div>
     </div>
@@ -40,5 +40,6 @@
 </div>
 <script src="/javascripts/favorite_manager.js"></script>
 <script src="/javascripts/search_history.js"></script>
+<link rel="stylesheet" href="/css/home.css">
 </body>
 </html>
