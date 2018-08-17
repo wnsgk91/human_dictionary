@@ -9,7 +9,7 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
   <form class="form-inline" id="search_form" action="/search" method="post">
-    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="search_search" name = "keyword">
     <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
   </form>
 </nav>
@@ -27,5 +27,38 @@
 </div>
 <!--<script src="/javascripts/search_manager.js"></script>-->
 <script src="/javascripts/favorite_manager.js"></script>
+<<<<<<< HEAD
+=======
+<link rel="stylesheet" href="/css/search.css">
+
+
+
+<script>
+  $(".star_regular").click(function (event) {
+    if( $(event.target).closest("li")[0] !== undefined) {
+      const this_name = $(event.target).closest("li")[0].textContent.trim();
+
+      var myFavoriteList = get_item();
+      if(myFavoriteList === null) myFavoriteList = [];
+      var index = myFavoriteList.indexOf(this_name);
+
+      if (index == -1) {
+        myFavoriteList.push(this_name);
+        $(this).removeClass('star_regular');
+        $(this).addClass('star_solid');
+        //alert("즐겨찾기 목록에서 추가되었습니다");
+      }else {
+        myFavoriteList.splice(index, 1);
+        $(this).removeClass('star_solid');
+        $(this).addClass('star_regular');
+        //alert("즐겨찾기 목록에서 삭제되었습니다");
+      }
+      console.log(myFavoriteList);
+      set_item(myFavoriteList);
+    }
+  });
+</script>
+
+>>>>>>> 92aedcbf4280498a7120b1516886bad99dcd1eb7
 </body>
 </html>
