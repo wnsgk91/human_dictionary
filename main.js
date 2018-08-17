@@ -35,7 +35,7 @@ app.get('/', function(req,res){
 
 //home 페이지 희귀난치병 이야기
 app.get('/home', function(req,res){
-  var sql = 'SELECT * FROM test ORDER BY RAND() LIMIT 1';
+  var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1';
   con.query(sql, function (err, name) {
     res.render('home/home', {name:name});
   });
@@ -49,13 +49,14 @@ app.post(['/home','/search'], function(req,res){
 
 //search 페이지 결과
 app.get(['/search','/search?keyword='], function(req, res){
-  var sql = 'SELECT * FROM test';
+  var sql = 'SELECT * FROM diseases';
   con.query(sql, function(err, names, fields){
     var keyword = req.query.keyword;
     if(keyword){
-      var sql = "SELECT * FROM test WHERE name LIKE '%"+keyword+"%'";
+      var sql = "SELECT * FROM diseases WHERE name LIKE '%"+keyword+"%'";
       con.query(sql, [keyword], function(err, keyword, fields){
         res.render('search/search', {name: keyword});
+      })
     }else{
       res.render('search/search', {name:names});
     }
@@ -65,7 +66,7 @@ app.get(['/search','/search?keyword='], function(req, res){
 // 항목 자세히 보기
 app.get('/document/:name', function(req, res){
   var name = req.params.name;
-  var sql = 'SELECT * FROM test WHERE name = ?';
+  var sql = 'SELECT * FROM diseases WHERE name = ?';
   con.query(sql, [name], function(err, name, fields){
     res.render('document/document', {names:name});
   })
