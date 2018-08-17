@@ -24,38 +24,12 @@
         </li>
     <% }} %>
 </div>
-<!--<script src="/javascripts/search_manager.js"></script>-->
 <script src="/javascripts/favorite_manager.js"></script>
 <link rel="stylesheet" href="/css/search.css">
 
 
 
-<script>
-  $(".star_regular").click(function (event) {
-    if( $(event.target).closest("li")[0] !== undefined) {
-      const this_name = $(event.target).closest("li")[0].textContent.trim();
 
-      var myFavoriteList = get_item();
-      if(myFavoriteList === null) myFavoriteList = [];
-      var index = myFavoriteList.indexOf(this_name);
-
-      if (index == -1) {
-        myFavoriteList.push(this_name);
-        $(this).removeClass('star_regular');
-        $(this).addClass('star_solid');
-        //alert("즐겨찾기 목록에서 추가되었습니다");
-      }else {
-        myFavoriteList.splice(index, 1);
-        $(this).removeClass('star_solid');
-        $(this).addClass('star_regular');
-        //alert("즐겨찾기 목록에서 삭제되었습니다");
-      }
-      console.log(myFavoriteList);
-      set_item(myFavoriteList);
-    }
-  });
-
-</script>
 
 </body>
 </html>
