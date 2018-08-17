@@ -2,6 +2,11 @@
 <html>
 <head>
   <% include ../header.ejs %>
+    <style>
+        .like{
+            background:pink;
+        }
+    </style>
 </head>
 <body>
 <!-- 소제목 & Searchbar -->
@@ -18,9 +23,25 @@
         <br/><h2 style="text-align: center;">검색결과가 없습니다</h2>
     <% }else{ %>
     <% for(var i = 0; i< name.length; i++){%>
-        <li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></li>
+        <li class="list-group-item"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a>
+            <!--<div class="star" id="star_id"></div>-->
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/star.svg" class="float-right">
+        </li>
     <% }} %>
 </div>
+
 <script src="/javascripts/search_manager.js"></script>
+<script src="/javascripts/favorite_manager.js"></script>
+<!--$("div").on("click svg", function (event) {
+}-->
+
+<script>
+  $("li").click(function () {
+    //console.log($(this)[0].textContent);
+    //add_favorite($(this)[0].textContent.trim());
+    $(this).toggleClass("like");
+  });
+</script>
+
 </body>
 </html>
