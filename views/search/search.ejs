@@ -13,7 +13,7 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
   <form class="form-inline" id="search_form" action="/search" method="post">
-    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="search_search" name = "keyword">
     <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
   </form>
 </nav>
@@ -33,17 +33,12 @@
 
 <script src="/javascripts/search_manager.js"></script>
 <script src="/javascripts/favorite_manager.js"></script>
+<link rel="stylesheet" href="/css/search.css">
+
 
 
 <script>
-  /*$("li").on("click .star-regular", function (event) {
-    console.log($(this)[0].textContent);
-    //add_favorite($(this)[0].textContent.trim());
-    $(this).toggleClass("like");
-  });*/
-
   $(".star_regular").click(function (event) {
-    //console.log($(event.target).closest("li")[0].textContent);
     if( $(event.target).closest("li")[0] !== undefined) {
       const this_name = $(event.target).closest("li")[0].textContent.trim();
 
@@ -65,25 +60,7 @@
       console.log(myFavoriteList);
       set_item(myFavoriteList);
     }
-
   });
-/*
-  $(".star_solid").click(function (event) {
-    if( $(event.target).closest("li")[0] !== undefined) {
-      const rmv_this = $(event.target).closest("li")[0].textContent.trim();
-
-      var myFavoriteList = get_item();
-      var index = myFavoriteList.indexOf(rmv_this);
-
-      if (index > -1) {
-
-        //alert("즐겨찾기 목록에서 삭제되었습니다");
-        window.location.reload(true);
-      }
-    }
-    $(event.target).removeClass("star_solid");
-    $(event.target).addClass("star_regular");
-  });*/
 </script>
 
 </body>
