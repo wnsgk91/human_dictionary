@@ -20,6 +20,7 @@ var con = mysql.createConnection({
  password: 'dlwnsgk94',//joon
  //password: '1648', //ellene
  database : 'dic'
+
  });
 
 con.connect();
@@ -34,7 +35,7 @@ app.get('/', function(req,res){
 
 //home 페이지 희귀난치병 이야기
 app.get('/home', function(req,res){
-  var sql = 'SELECT * FROM diseases ORDER BY RAND() LIMIT 1';
+  var sql = 'SELECT * FROM test ORDER BY RAND() LIMIT 1';
   con.query(sql, function (err, name) {
     res.render('home/home', {name:name});
   });
@@ -43,19 +44,18 @@ app.get('/home', function(req,res){
 //home 페이지에서 검색
 app.post(['/home','/search'], function(req,res){
   var keyword = req.body.keyword;
-  res.redirect('/search/'+keyword);
+  res.redirect('/search?keyword=' + keyword);
 });
 
 //search 페이지 결과
-app.get(['/search','/search/:keyword'], function(req, res){
-  var sql = 'SELECT * FROM diseases';
+app.get(['/search','/search?keyword='], function(req, res){
+  var sql = 'SELECT * FROM test';
   con.query(sql, function(err, names, fields){
-    var keyword = req.params.keyword;
+    var keyword = req.query.keyword;
     if(keyword){
-        var sql = "SELECT * FROM diseases WHERE name LIKE ?";//변수명 구분
-        con.query(sql, ['%' + keyword + '%'],function(err, keyword, fields){
-          res.render('search/search', {name: keyword});
-        })
+      var sql = "SELECT * FROM test WHERE name LIKE '%"+keyword+"%'";
+      con.query(sql, [keyword], function(err, keyword, fields){
+        res.render('search/search', {name: keyword});
     }else{
       res.render('search/search', {name:names});
     }
@@ -65,7 +65,7 @@ app.get(['/search','/search/:keyword'], function(req, res){
 // 항목 자세히 보기
 app.get('/document/:name', function(req, res){
   var name = req.params.name;
-  var sql = 'SELECT * FROM diseases WHERE name = ?';
+  var sql = 'SELECT * FROM test WHERE name = ?';
   con.query(sql, [name], function(err, name, fields){
     res.render('document/document', {names:name});
   })
