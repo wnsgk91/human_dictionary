@@ -1,20 +1,10 @@
-#history_place {
-    text-align: center;
-}
-
-#story_text{
-    line-height: 30px;
-    text-align: left;
-    text-indent: 10px;
-}
+/*common*/
 .star_solid {
     width: 20px;
     height: 20px;
     background: url("/img/star-solid.svg") no-repeat;
     display: inline-block;
     float: right;
-
-
 }
 
 .star_regular {
@@ -23,17 +13,7 @@
     background: url("/img/star-regular.svg") no-repeat;
     display: inline-block;
     float: right;
-
 }
-
-/*.star:hover {
-    width: 20px;
-    height: 20px;
-    background: url("https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/star.svg") no-repeat;
-    display: inline-block;
-    float: right;
-}*/
-
 
 @media screen and (max-width: 400px) {
     #history_place {
@@ -41,7 +21,22 @@
     }
 }
 
+/*document*/
+.document_title{
+    word-break:break-all;
+}
 
+.tab-content {
+    line-height: 30px;
+    text-align: left;
+    text-indent: 10px;
+}
+
+.jumbotron {
+    margin-bottom: 0rem;
+}
+
+/*search*/
 #dict_list{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -71,4 +66,23 @@
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/*home*/
+#history_place {
+    text-align: center;
+}
+
+#story_text{
+    line-height: 30px;
+    text-align: left;
+    text-indent: 10px;
+}
+
+/*header*/
+.navbar-brand {
+    font-size: 1rem;
+}
+.navbar-nav {
+    cursor: pointer;
 }
