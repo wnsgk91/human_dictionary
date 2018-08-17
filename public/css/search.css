@@ -1,0 +1,9 @@
+@media screen and (max-width: 400px) {
+	#search_search{
+	width: 70%;
+	margin-right: 10px
+	}
+	#search_form{
+	width: 100%;
+	}
+}

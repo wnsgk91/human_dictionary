@@ -1,0 +1,23 @@
+#home_title_first{
+    margin-bottom: 10px;
+}
+
+#home_search{
+	width: 90%;
+}
+
+
+#search_place{
+	width: 100%;
+}
+
+#history_place {
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+	#home_search{
+	width: 72%;
+	}
+
+}
