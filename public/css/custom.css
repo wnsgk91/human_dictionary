@@ -13,6 +13,8 @@
     background: url("/img/star-solid.svg") no-repeat;
     display: inline-block;
     float: right;
+
+
 }
 
 .star_regular {
@@ -21,15 +23,16 @@
     background: url("/img/star-regular.svg") no-repeat;
     display: inline-block;
     float: right;
+
 }
 
-.star:hover {
+/*.star:hover {
     width: 20px;
     height: 20px;
     background: url("https://cdnjs.cloudflare.com/ajax/libs/octicons/8.0.0/svg/star.svg") no-repeat;
     display: inline-block;
     float: right;
-}
+}*/
 
 
 @media screen and (max-width: 400px) {
@@ -39,12 +42,20 @@
 }
 
 
-.dict_list{
-    word-break:break-all;
-    width: 50px;
+#dict_list{
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0rem 2rem 0rem 0rem;
+}
+
+#dict_width{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60%;
 }
 
 .form-control {
