@@ -1,0 +1,9 @@
+#document_title{
+	list-style: none;
+}
+
+#nav-tab_document{
+	width: 613px;
+	white-space: nowrap;
+	overflow-x:hidden;
+}
