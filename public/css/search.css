@@ -1,0 +1,11 @@
+#no_result {
+	text-align: center;
+}
+
+#dict_width {
+	width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+

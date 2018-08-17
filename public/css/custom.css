@@ -37,15 +37,7 @@
 }
 
 /*search*/
-#dict_list{
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-#dict_width{
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 #name{
     overflow: hidden;
