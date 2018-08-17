@@ -26,15 +26,14 @@
 }
 
 .card-body{
-	padding:0;
+	padding: 10px;
 	margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1200px) {
   #home_search{
-    width: 70%;
+    width: 80%;
   }
   #home_title{
 	/*font-size: 16px;*/
   }
-}
