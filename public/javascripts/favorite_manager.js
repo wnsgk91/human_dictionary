@@ -88,24 +88,6 @@ function rmv_favorite(){
   }
 }
 
-//목록에서 한 개 삭제.
-$(function () {
-  $("div").on("click svg", function (event) {
-    if( $(event.target).closest("li")[0] !== undefined) {
-      const rmv_this = $(event.target).closest("li")[0].textContent.trim();
-
-    var myFavoriteList = get_item();
-    var index = myFavoriteList.indexOf(rmv_this);
-
-      if (index > -1) {
-        myFavoriteList.splice(index, 1);
-        set_item(myFavoriteList);
-        alert("즐겨찾기 목록에서 삭제되었습니다");
-        window.location.reload(true);
-      }
-    }
-  });
-});
 
 
 function get_item(){
