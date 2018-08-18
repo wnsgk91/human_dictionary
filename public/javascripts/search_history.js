@@ -1,6 +1,6 @@
 // 검색버튼 눌렀을 때 호출되는 함수
 function search_history() {
-  const search_term = document.getElementById("home_search").value; //input tag id
+  const search_term = document.getElementById("search_search").value; //input tag id
   if (search_term !== '') {
     let history_list = get_history();
     if(history_list !== null){
