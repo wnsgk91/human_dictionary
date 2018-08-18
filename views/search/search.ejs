@@ -7,10 +7,16 @@
 <!-- 소제목 & Searchbar -->
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
-  <form class="form-inline" id="search_form" action="/search" method="post">
-    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
-    <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
-  </form>
+  <div class="row">
+    <form class="form-group row col-lg-12" id="search_form" action="/search" method="post">
+      <div class="col-9 col-lg-9">
+        <input class="form-control" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="home_search" name = "keyword">
+      </div>
+      <div class="col-3 col-lg-3">
+        <button class="btn btn-outline-success" type="submit"  onclick="search_history()">검색하기</button>
+      </div>
+    </form>
+  </div>
 </nav>
 <!-- 전체 목록이 들어가는 부분 -->
 <div class="list-group" id="dictionary">
@@ -26,9 +32,5 @@
 </div>
 <!--<script src="/javascripts/search_manager.js"></script>-->
 <script src="/javascripts/favorite_manager.js"></script>
-<script>
-
-</script>
-
 </body>
 </html>

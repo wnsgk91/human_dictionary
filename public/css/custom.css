@@ -1,5 +1,6 @@
 /*common*/
 .star_solid {
+    margin-left: 5px;
     width: 20px;
     height: 20px;
     background: url("/img/star-solid.svg") no-repeat;
@@ -8,6 +9,7 @@
 }
 
 .star_regular {
+    margin-left: 5px;
     width: 20px;
     height: 20px;
     background: url("/img/star-regular.svg") no-repeat;
@@ -15,10 +17,15 @@
     float: right;
 }
 
+
 @media screen and (max-width: 400px) {
     #history_place {
         text-align: left;
     }
+}
+
+.col-3 {
+    padding-left: 0px;
 }
 
 /*document*/
@@ -40,32 +47,19 @@
 #dict_list{
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #dict_width{
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #name{
     overflow: hidden;
     text-overflow: ellipsis;
     width: 60%;
-}
-
-.form-control {
-    vertical-align: middle;
-    display: block;
-    width: 65%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 /*home*/
