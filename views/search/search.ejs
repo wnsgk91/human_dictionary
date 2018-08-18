@@ -9,8 +9,10 @@
 <nav class="navbar navbar-light bg-light justify-content-between" id="search_search_section">
   <a class="navbar-brand">사전목록</a>
   <form class="form-inline" id="search_form" action="/search" method="post">
-    <input class="form-control mr-sm-2" type="search" placeholder="병명을 입력해주세요" aria-label="Search" id="search_search" name = "keyword">
-    <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
+              <input type="text" class="form-control" placeholder="병명을 입력해주세요" aria-label="Search" aria-describedby="button-addon2" id= "search_search" name = "keyword">
+              <div class="input-group-append">
+              <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
+              </div>
   </form>
 </nav>
 <!-- 전체 목록이 들어가는 부분 -->
@@ -20,8 +22,8 @@
     } else {
       for(var i = 0; i< name.length; i++){ %>
         <li class="list-group-item" id="dict_list">
-            <a id="dict_width" href="/document/<%= name[i].name %>"><%= name[i].name %></a>
-            <div id="<%= name[i].name %>" class="star_regular"></div>
+            <div id="dict_name"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></div>
+            <div  id="<%= name[i].name %>" class="star_regular"></div>
         </li>
         <script>
           var myFavoriteList = get_item();

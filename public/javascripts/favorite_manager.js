@@ -41,7 +41,7 @@ function loadFavorites() {
     let output = '';
     for (let i = 0; i < loadList.length; i++){
       if(loadList[i] !== null){
-        output += '<li class="list-group-item"><a id = "title" href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a><div class="star_solid"></div></li>';
+        output += '<li class="list-group-item"><div id="dict_name"><a id = "title" href = "/document/' + loadList[i] + '">'+ loadList[i] + '</a></div><div class="star_solid"></div></li>';
       }
     }
     showFav.innerHTML = output;
