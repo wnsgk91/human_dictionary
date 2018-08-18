@@ -19,18 +19,19 @@ $(".star_regular").add("#star").click(function (event) {
     set_item(myFavoriteList);
   }
 });
+
 $(".star_solid").click(function (event) {
-    const this_name = $(event.target).parents("li")[0].innerText;
-    var myFavoriteList = get_item();
-    if(myFavoriteList === null) myFavoriteList = [];
-    var index = myFavoriteList.indexOf(this_name);
-    if (index > -1) {
-      myFavoriteList.splice(index, 1);
-      $(this).removeClass('star_solid');
-      $(this).addClass('star_regular');
-    }
-    console.log(myFavoriteList);
-    set_item(myFavoriteList);
+  const this_name = $(event.target).parents("li")[0].innerText.trim();
+  var myFavoriteList = get_item();
+  if(myFavoriteList === null) myFavoriteList = [];
+  var index = myFavoriteList.indexOf(this_name);
+  if (index > -1) {
+    myFavoriteList.splice(index, 1);
+    $(this).removeClass('star_solid');
+    $(this).addClass('star_regular');
+  }
+  console.log(myFavoriteList);
+  set_item(myFavoriteList);
 });
 
 function loadFavorites() {
