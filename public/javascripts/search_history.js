@@ -26,7 +26,7 @@ function history_process(history_list){
   let history_banner = '';
   for (let i = five_items.length-1; i >= 0; i--){
     if(five_items[i] !== ''){
-      history_banner += '<li class="list-group-item" ><a href="/search?keyword='+ five_items[i] +'">' + five_items[i] + '</a></li>';
+      history_banner += '<li class="list-group-item" ><div id="history_name"><a href="/search?keyword='+ five_items[i] +'">' + five_items[i] + '</a></div></li>';
     }
   }
   document.getElementById('history_place').innerHTML = history_banner;

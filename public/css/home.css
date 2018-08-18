@@ -39,6 +39,14 @@
   margin-bottom: 10px;
 }
 
+#history_name{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px) {
   #home_search{
     width: 80%;
