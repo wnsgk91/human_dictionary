@@ -29,6 +29,7 @@
 }
 /*common*/
 .star_solid {
+    margin-left: 5px;
     width: 20px;
     height: 20px;
     background: url("/img/star-solid.svg") no-repeat;
@@ -37,6 +38,7 @@
 }
 
 .star_regular {
+    margin-left: 5px;
     width: 20px;
     height: 20px;
     background: url("/img/star-regular.svg") no-repeat;
@@ -44,10 +46,15 @@
     float: right;
 }
 
+
 @media screen and (max-width: 400px) {
     #history_place {
         text-align: left;
     }
+}
+
+.col-3 {
+    padding-left: 0px;
 }
 
 /*document*/
@@ -66,7 +73,6 @@
 }
 
 /*search*/
-
 
 .dict_list{
   word-break:break-all;

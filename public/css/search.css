@@ -1,13 +1,14 @@
 
-#no_result {
-	text-align: center;
-}
-
-@media screen and (max-width: 1200px) {
-#dict_width {
-	width: 300px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	
+@media screen and (max-width: 400px) {
+  #search_search{
+  width: 70%;
+  margin-right: 10px
+  }
+  #search_form{
+  width: 100%;
+  }
+  #dict_list{
+  	padding: 10px;
+  }
 }
 

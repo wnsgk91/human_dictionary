@@ -2,9 +2,9 @@
   margin-bottom: 10px;
 }
 
-#home_search{
+/*#home_search{
   width: 90%;
-}
+}*/
 
 
 #search_place{
@@ -23,19 +23,4 @@
   -webkit-box-orient: vertical;
   word-wrap:break-word; 
   padding: 1.5px;
-}
-
-.card-body{
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-@media screen and (max-width: 1200px) {
-  #home_search{
-    width: 70%;
-
-  }
-  #home_title{
-	/*font-size: 16px;*/
-  }
 }
