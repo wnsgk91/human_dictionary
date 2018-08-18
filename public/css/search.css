@@ -6,4 +6,7 @@
   #search_form{
   width: 100%;
   }
+  #dict_list{
+  	padding: 10px;
+  }
 }
