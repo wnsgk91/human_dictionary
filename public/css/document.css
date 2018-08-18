@@ -1,11 +1,13 @@
 #document_title{
 	list-style: none;
 }
+.nav-tabs {
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+}
+.nav-tabs>li {
+  float: none;
+}
 
-/*화면크기 바뀌었을 때 적용 안됨. @media 로 바꾸는 것이 좋겠다!!*/
-/*
-#nav-tab_document{
-	width: 613px;
-	white-space: nowrap;
-	overflow-x:hidden;
-}*/

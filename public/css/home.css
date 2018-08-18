@@ -25,17 +25,3 @@
   padding: 1.5px;
 }
 
-/*.card-body{
-	padding:0;
-	margin-bottom: 10px;
-}*/
-
-/*custom에서 home 페이지의 검색바와 search 페이지의 검색바 한번에 설정하는게 좋을 것 같다*/
-/*@media screen and (max-width: 1200px) {
-  #home_search{
-    width: 80%;
-  }
-  #home_title{
-	!*font-size: 16px;*!
-  }
-}*/
