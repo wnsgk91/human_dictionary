@@ -45,6 +45,7 @@
   <script src="/javascripts/favorite_manager.js"></script>
   <script>
     var myFavoriteList = get_item();
+    if(myFavoriteList === null) myFavoriteList = [];
     var checkitem = '<%= names[0].name %>'.trim();
     if (myFavoriteList.includes(checkitem)){
       document.getElementById('star').className = 'star_solid';
