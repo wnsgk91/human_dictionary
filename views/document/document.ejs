@@ -9,7 +9,7 @@
       <li id="document_title">
       <h4 class="document_title" ><%= names[0].name %></h4>
       <p>
-        <div class="star_regular"></div>    
+        <div id="star" class=""></div>
       </p>
     </li>
     </div>
@@ -43,6 +43,15 @@
     </div>
   </div>
   <script src="/javascripts/favorite_manager.js"></script>
+  <script>
+    var myFavoriteList = get_item();
+    var checkitem = '<%= names[0].name %>'.trim();
+    if (myFavoriteList.includes(checkitem)){
+      document.getElementById('star').className = 'star_solid';
+    } else {
+      document.getElementById('star').className = 'star_regular';
+    }
+  </script>
   <link rel="stylesheet" href="/css/document.css">
 </body>
 </html>

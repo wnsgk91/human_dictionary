@@ -1,5 +1,5 @@
 
-$(".star_regular").click(function (event) {
+$(".star_regular").add("#star").click(function (event) {
   if( $(event.target).closest("li")[0] !== undefined) {
     const this_name = $(event.target).closest("li")[0].textContent.trim();
     var myFavoriteList = get_item();
