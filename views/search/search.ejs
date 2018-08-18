@@ -2,8 +2,9 @@
 <html>
 <head>
   <% include ../header.ejs %>
+    <script src="/javascripts/favorite_manager.js"></script>
 </head>
-<body><!-- TODO inline style 다 css로 포함하기. 안쓰는 코드 지우기. 로딩할 때 ★ 불러오기-->
+<body>
 <!-- 소제목 & Searchbar -->
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand">사전목록</a>
@@ -13,17 +14,29 @@
   </form>
 </nav>
 <!-- 전체 목록이 들어가는 부분 -->
+<script>var myFavoriteList = get_item();</script>
 <div class="list-group" id="dictionary">
-    <% if(name == null || name.length == 0){%>
-        <br/><h2 class="text-center">검색결과가 없습니다</h2>
-    <% }else{ %>
-    <% for(var i = 0; i< name.length; i++){ %>
+    <% if(name == null || name.length == 0){
+      %><br/><h2 class="text-center">검색결과가 없습니다</h2><%
+    } else {
+      for(var i = 0; i< name.length; i++){ %>
         <li class="list-group-item" id="dict_list">
             <a id="dict_width" href="/document/<%= name[i].name %>"><%= name[i].name %></a>
-            <div class="star_regular"></div>
+            <div id="<%= name[i].name %>" class="star_regular"></div>
         </li>
-    <% }} %>
+        <script>
+          var checkitem = '<%= name[i].name %>'.trim();
+          if (myFavoriteList.indexOf(checkitem) > -1){
+            //console.log(document.getElementById('<%= name[i].name %>'));
+            //document.getElementById('<%= name[i].name %>').attr('class', 'star_solid');
+            document.getElementById('<%= name[i].name %>').className = 'star_solid';
+
+          }
+        </script>
+    <% }
+    } %>
 </div>
+
 <script src="/javascripts/favorite_manager.js"></script>
 <link rel="stylesheet" href="/css/search.css">
 </body>
