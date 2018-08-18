@@ -3,6 +3,7 @@
 	text-align: center;
 }
 
+@media screen and (max-width: 1200px) {
 #dict_width {
 	width: 300px;
 	overflow: hidden;
