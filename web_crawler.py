@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 import json
 import collections
 import telegram
-
+from multiprocessing import Pool
+from itertools import product
 
 # 텔레그램에서 오는 메시지 시간을 어떻게 줄일까 
 def telegram_notice(err_no):
@@ -95,7 +96,7 @@ def get_before_url():
 			for key, value in value.items():
 				page_no_list.append(key)
 		x = 1
-		for i in range(1, int(link_no_list[-1])):
+		for i in range(1, int(link_no_list[-1])+1):
 			for j in range(x, x+10):
 				before_url.append(link[str(i)][str(j)]) 
 				# URL 에서 숫자만 추출하기 
@@ -107,7 +108,6 @@ def get_before_url():
 def access_page(before_url, file_name):
 	with open("./diseases/{}.json".format(file_name), 'w', encoding = 'UTF8') as content_json:
 		dict_content = tree()
-
 	
 		req_page = requests.get("http://helpline.nih.go.kr/cdchelp/" + before_url)
 		soup_page = BeautifulSoup(req_page.content, 'html.parser')	
@@ -116,7 +116,6 @@ def access_page(before_url, file_name):
 		names = soup_page.select(
 			'#detailbd_tit > h3'
 			)
-
 		contents = soup_page.find_all(
 			'div', class_='detail_list_set'
 			)
@@ -139,10 +138,14 @@ def access_page(before_url, file_name):
 			
 		json.dump(dict_content, content_json, ensure_ascii=False, indent=3)
 
+def main():
+	get_page_link(page_check())
+	pool = Pool(processes=8)
+
+	with Pool() as pool:
+		disease_no = list(range(0, len(get_before_url())))
+		pool.starmap(access_page, zip(get_before_url(), disease_no))
+		#access_page(get_before_url()[disease_no], disease_no)
 
 if __name__ == '__main__':
-	get_page_link(page_check())
-	disease_no = 1
-	for disease_no in range(100):
-		access_page(get_before_url()[disease_no], disease_no)
-	
+	main()
