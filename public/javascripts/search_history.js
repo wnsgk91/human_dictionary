@@ -26,13 +26,36 @@ function history_process(history_list){
   let history_banner = '';
   for (let i = five_items.length-1; i >= 0; i--){
     if(five_items[i] !== ''){
+<<<<<<< HEAD
       history_banner += '<li class="list-group-item" ><div id="history_name"><a href="/search?keyword='+ five_items[i] +'">' + five_items[i] + '</a></div></li>';
+=======
+      history_banner += '<li class="list-group-item" ><div id="history_name"><a href="/search?keyword='+ five_items[i] +'">' + five_items[i] + '</a> \
+      <button class="btn" id= "history_delete_btn" onclick = "delete_select_history('+i+');">삭제</button></div></li>';
+>>>>>>> 0b6b6eecc37bcd859f3e6121ed8a42843a1a05d3
     }
+    console.log(i);
   }
   document.getElementById('history_place').innerHTML = history_banner;
 }
 
 // 히스토리 지우기
+function delete_select_history(i){
+  var rmv_this = i; 
+  myHistoryList = get_history()
+  console.log(myHistoryList);
+  myHistoryList.splice(i, 1);
+  console.log(myHistoryList);
+  localStorage.setItem('search_history', JSON.stringify(myHistoryList));
+  window.location.reload(true);
+
+  //  var index = myFavoriteList.indexOf(rmv_this);
+  //       if (index > -1) {
+  //         myFavoriteList.splice(index, 1);
+  //         set_item(myFavoriteList);
+  //         window.location.reload(true);
+  // }  
+}
+
 function delete_history(){
   localStorage.removeItem('search_history');
   window.location.reload(true);  
