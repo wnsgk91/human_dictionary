@@ -2,6 +2,7 @@
 <html>
 <head>
   <% include ../header.ejs %>
+  <link rel="stylesheet" href="/css/search.css">
     <script src="/javascripts/favorite_manager.js"></script>
 </head>
 <body>
@@ -9,37 +10,34 @@
 <nav class="navbar navbar-light bg-light justify-content-between" id="search_search_section">
   <a class="navbar-brand">사전목록</a>
   <form class="form-inline" id="search_form" action="/search" method="post">
-              <input type="text" class="form-control" placeholder="병명을 입력해주세요" aria-label="Search" aria-describedby="button-addon2" id= "search_search" name = "keyword">
-              <div class="input-group-append">
-              <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
-              </div>
+    <input type="text" class="form-control" placeholder="병명을 입력해주세요" aria-label="Search" aria-describedby="button-addon2" id= "search_search" name = "keyword">
+    <div class="input-group-append">
+      <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
+    </div>
   </form>
 </nav>
 <!-- 전체 목록이 들어가는 부분 -->
 <div class="list-group" id="dictionary">
-
-    <% if(name == null || name.length == 0){
-      %><br/><h2 class="text-center">검색결과가 없습니다</h2><%
-    } else {
-      for(var i = 0; i< name.length; i++){ %>
-        <li class="list-group-item" id="dict_list">
-            <div id="dict_name"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></div>
-            <div  id="<%= name[i].name %>" class="star_regular"></div>
-        </li>
-        <script>
-          var myFavoriteList = get_item();
-          if(myFavoriteList === null) myFavoriteList = [];
+  <% if(name == null || name.length == 0){
+    %><br/><h2 class="text-center">검색결과가 없습니다</h2><%
+  }else {
+    for(var i = 0; i< name.length; i++){ %>
+      <li class="list-group-item" id="dict_list">
+        <div id="dict_name"><a href="/document/<%= name[i].name %>"><%= name[i].name %></a></div>
+        <div  id="<%= name[i].name %>" class="star_regular"></div>
+      </li>
+      <script>
+        var myFavoriteList = get_item();
+        if(myFavoriteList === null) myFavoriteList = [];
           var checkitem = '<%= name[i].name %>'.trim();
-          if (myFavoriteList.indexOf(checkitem) > -1){
-            document.getElementById('<%= name[i].name %>').className = 'star_solid';
-          }
-        </script>
+        if (myFavoriteList.indexOf(checkitem) > -1){
+          document.getElementById('<%= name[i].name %>').className = 'star_solid';
+        }
+      </script>
     <% }
-    } %>
+  } %>
 </div>
 <!--<script src="/javascripts/search_manager.js"></script>-->
 <script src="/javascripts/favorite_manager.js"></script>
-<link rel="stylesheet" href="/css/search.css">
-
 </body>
 </html>
