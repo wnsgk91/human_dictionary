@@ -8,11 +8,11 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <li id="document_title">
-      <h4 class="document_title" ><%= names[0].name %></h4>
-      <p>
-        <div id="star" class=""></div>
-      </p>
-    </li>
+        <h4 class="document_title" ><%= names[0].name %></h4>
+        <p>
+          <div id="star" class=""></div>
+        </p>
+      </li>
     </div>
   </div>
   <div class="card text-center">
@@ -30,8 +30,7 @@
         <a class="nav-item nav-link" id="nav-etc-tab" data-toggle="tab" href="#nav-etc" role="tab" aria-controls="nav-etc" aria-selected="false">기타</a>
       </div>
     </nav>
-    <!--카드 내용-->
-    
+    <!--카드 내용-->  
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
       <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
@@ -44,7 +43,6 @@
       <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
     </div>
   </div>
-
   <script src="/javascripts/favorite_manager.js"></script>
   <script>
     var myFavoriteList = get_item();
@@ -57,5 +55,4 @@
     }
   </script>
 </body>
-
 </html>

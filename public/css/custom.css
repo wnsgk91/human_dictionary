@@ -3,7 +3,6 @@
   text-align: left;
   text-indent: 10px;
 }
-
 .star_solid {
   width: 20px;
   height: 20px;
@@ -11,7 +10,6 @@
   display: inline-block;
   float: right;
 }
-
 .star_regular {
   width: 20px;
   height: 20px;
@@ -19,7 +17,6 @@
   display: inline-block;
   float: right;
 }
-
 .star:hover {
   width: 20px;
   height: 20px;
@@ -36,7 +33,6 @@
     display: inline-block;
     float: right;
 }
-
 .star_regular {
     margin-left: 5px;
     width: 20px;
@@ -45,35 +41,27 @@
     display: inline-block;
     float: right;
 }
-
-
 @media screen and (max-width: 400px) {
     #history_place {
         text-align: left;
     }
 }
-
 .col-3 {
     padding-left: 0px;
 }
-
 /*document*/
 .document_title{
     word-break:break-all;
 }
-
 .tab-content {
     line-height: 30px;
     text-align: left;
     text-indent: 10px;
 }
-
 .jumbotron {
     margin-bottom: 0rem;
 }
-
 /*search*/
-
 .dict_list{
   word-break:break-all;
   width: 50px;
@@ -81,7 +69,6 @@
   text-overflow: ellipsis;
   margin: 0rem 2rem 0rem 0rem;
 }
-
 .form-control {
   vertical-align: middle;
   display: block;
@@ -97,18 +84,15 @@
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
 }
-
 /*home*/
 #history_place {
     text-align: center;
 }
-
 #story_text{
     line-height: 30px;
     text-align: left;
     text-indent: 10px;
 }
-
 /*header*/
 .navbar-nav {
     cursor: pointer;
