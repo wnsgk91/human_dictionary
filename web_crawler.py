@@ -96,7 +96,7 @@ def get_before_url():
 			for key, value in value.items():
 				page_no_list.append(key)
 		x = 1
-		for i in range(1, int(link_no_list[-1])+1):
+		for i in range(1, int(link_no_list[-1])):
 			for j in range(x, x+10):
 				before_url.append(link[str(i)][str(j)]) 
 				# URL 에서 숫자만 추출하기 
@@ -133,7 +133,7 @@ def access_page(before_url, file_name):
 			text = content.text
 			subtitle = ''.join(re.findall('[A-z]+' , content.img.get("alt")))
 		# TODO 정규표현식 만들기 
-			dict_content['name'] = name
+			dict_content['name'] = removed
 			dict_content[subtitle] = text
 			
 		json.dump(dict_content, content_json, ensure_ascii=False, indent=3)
