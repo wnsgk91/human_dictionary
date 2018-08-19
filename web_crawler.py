@@ -116,7 +116,7 @@ def get_code_no():
 		
 
 def access_page():
-	with open("./1.json", 'w', encoding = 'UTF8') as content_json:
+	with open("./name_modified.json", 'w', encoding = 'UTF8') as content_json:
 		dict_content = tree()
 
 		for i in before_url:
@@ -136,11 +136,18 @@ def access_page():
 
 			# dictionary 만들기. 	
 			for content in contents:
-				name = (''.join(name.strip('\r|\n|\t'))).replace("/", " ")
+				name = (''.join(name.strip('\r|\n|\t')))
+				location_find = name.find("/")
+				
+				if location_find == -1:
+					pass	
+				else:
+					removed = (name[location_find+1:])	
+				
 				text = content.text
 				subtitle = ''.join(re.findall('[A-z]+' , content.img.get("alt")))
 			
-				dict_content['name'] = name
+				dict_content['name'] = removed
 				dict_content[subtitle] = text
 				
 			json.dump(dict_content, content_json, ensure_ascii=False, indent=3)
