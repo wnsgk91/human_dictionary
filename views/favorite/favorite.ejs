@@ -9,28 +9,27 @@
     <a class="navbar-brand">즐겨찾기</a>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="clear_fav">전체 삭제</button>
   </nav>
-  <!--즐겨찾기 목록이 들어가는 부분-->
-  <div class="list-group" id="favorite_list"></div>
+  <div class="list-group" id="favorite_list">
+      <!--즐겨찾기 목록이 들어가는 부분-->
+  </div>
   <script src="/javascripts/favorite_manager.js"></script>
-
-
-<script>
-//목록에서 한 개 삭제.
-$(function () {
-$("div").on("click svg", function (event) {
-  if( $(event.target).closest("li")[0] !== undefined) {
-    const rmv_this = $(event.target).closest("li")[0].textContent.trim();
-    var myFavoriteList = get_item();
-    var index = myFavoriteList.indexOf(rmv_this);
-    if (index > -1) {
-      myFavoriteList.splice(index, 1);
-      set_item(myFavoriteList);
-      window.location.reload(true);
-    }
-  }
-});
-});
-</script>
-
+  <script>
+  //목록에서 한 개 삭제.
+  $(function () {
+    $(".star_solid").on("click", function (event) {
+      if( $(event.target).closest("li")[0] !== undefined) {
+        const rmv_this = $(event.target).closest("li")[0].textContent.trim();
+        var myFavoriteList = get_item();
+        var index = myFavoriteList.indexOf(rmv_this);
+        if (index > -1) {
+          myFavoriteList.splice(index, 1);
+          set_item(myFavoriteList);
+          window.location.reload(true);
+          }
+        }
+      });
+  });
+  </script>
+<link rel="stylesheet" href="/css/favorite.css">
 </body>
 </html>
