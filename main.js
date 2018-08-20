@@ -17,7 +17,7 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
  host: 'localhost',
  user: 'root',
- password: '111111',//joon
+ password: 'dlwnsgk94',//joon
  //password: '1648', //ellene
  database : 'dic'
 

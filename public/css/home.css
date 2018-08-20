@@ -17,7 +17,7 @@
   width: 100%;
 }
 #history_place {
-  ext-align: center;
+  text-align: center;
 }
 #story_text{
   text-overflow: ellipsis;
@@ -31,6 +31,7 @@
 .card-body{
   padding:0;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 #history_name{
   float: left;
@@ -57,3 +58,10 @@
   opacity: .75; 
 }
 
+.trash_bin {
+    width: 18px;
+    height: 18px;
+    background: url("/img/trash-alt-regular.svg") no-repeat;
+    display: inline-block;
+    float: right;
+}

@@ -11,3 +11,11 @@
   float: none;
 }
 
+.tab-content {
+    line-height: 30px;
+    text-align: left;
+    text-indent: 10px;
+}
+.jumbotron {
+    margin-bottom: 0rem;
+}
