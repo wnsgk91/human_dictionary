@@ -3,6 +3,8 @@
   <head>
     <% include ../header.ejs %>
     <link rel="stylesheet" href="/css/home.css">
+    <script src="/javascripts/favorite_manager.js"></script>
+    <script src="/javascripts/search_history.js"></script>
   </head>
   <body>
     <div class="container">
@@ -45,8 +47,6 @@
         </div>
       </div>
     </div>
-      <script src="/javascripts/favorite_manager.js"></script>
-      <script src="/javascripts/search_history.js"></script>
   <script>
       $("#disease_story").on("click", function() {
         location.href ='/document/<%= name[0].name %>';
