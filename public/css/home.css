@@ -17,7 +17,7 @@
   width: 100%;
 }
 #history_place {
-  ext-align: center;
+  text-align: center;
 }
 #story_text{
   text-overflow: ellipsis;
