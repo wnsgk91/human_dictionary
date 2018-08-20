@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-<% include ../header.ejs %>
-<link rel="stylesheet" href="/css/document.css">
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <li id="document_title">
-      <h4 class="document_title" ><%= names[0].name %></h4>
-      <p>
-        <div id="star" class=""></div>
-      </p>
-    </li>
-    </div>
-  </div>
-  <div class="card text-center">
-    <!--카드 소제목 버튼-->
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab_document" role="tablist">
-        <a class="nav-item nav-link active" id="nav-sum-tab" data-toggle="tab" href="#nav-sum" role="tab" aria-controls="nav-sum" aria-selected="true">개요</a>
-        <a class="nav-item nav-link" id="nav-symptom-tab" data-toggle="tab" href="#nav-symptom" role="tab" aria-controls="nav-symptom" aria-selected="false">증상</a>
-        <a class="nav-item nav-link" id="nav-cause-tab" data-toggle="tab" href="#nav-cause" role="tab" aria-controls="nav-cause" aria-selected="false">원인</a>
-        <a class="nav-item nav-link" id="nav-diagnosis-tab" data-toggle="tab" href="#nav-diagnosis" role="tab" aria-controls="nav-diagnosis" aria-selected="false">진단</a>
-        <a class="nav-item nav-link" id="nav-treat-tab" data-toggle="tab" href="#nav-treat" role="tab" aria-controls="nav-treat" aria-selected="false">치료</a>
-        <a class="nav-item nav-link" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="false">참고자료</a>
-        <a class="nav-item nav-link" id="nav-institution-tab" data-toggle="tab" href="#nav-institution" role="tab" aria-controls="nav-institution" aria-selected="false">의료기관</a>
-        <a class="nav-item nav-link" id="nav-supervisor-tab" data-toggle="tab" href="#nav-supervisor" role="tab" aria-controls="nav-supervisor" aria-selected="false">감수</a>
-        <a class="nav-item nav-link" id="nav-etc-tab" data-toggle="tab" href="#nav-etc" role="tab" aria-controls="nav-etc" aria-selected="false">기타</a>
+  <head>
+    <% include ../header.ejs %>
+    <link rel="stylesheet" href="/css/document.css">
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <li id="document_title">
+        <h4 class="document_title" ><%= names[0].name %></h4>
+        <p>
+          <div id="star" class=""></div>
+        </p>
+      </li>
       </div>
-    </nav>
-    <!--카드 내용-->
-    
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
     </div>
-  </div>
-
-  <script src="/javascripts/favorite_manager.js"></script>
-  <script>
-    var myFavoriteList = get_item();
-    if(myFavoriteList === null) myFavoriteList = [];
-    var checkitem = '<%= names[0].name %>'.trim();
-    if (myFavoriteList.includes(checkitem)){
-      document.getElementById('star').className = 'star_solid';
-    } else {
-      document.getElementById('star').className = 'star_regular';
-    }
-  </script>
-</body>
-
+    <div class="card text-center">
+      <!--카드 소제목 버튼-->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab_document" role="tablist">
+          <a class="nav-item nav-link active" id="nav-sum-tab" data-toggle="tab" href="#nav-sum" role="tab" aria-controls="nav-sum" aria-selected="true">개요</a>
+          <a class="nav-item nav-link" id="nav-symptom-tab" data-toggle="tab" href="#nav-symptom" role="tab" aria-controls="nav-symptom" aria-selected="false">증상</a>
+          <a class="nav-item nav-link" id="nav-cause-tab" data-toggle="tab" href="#nav-cause" role="tab" aria-controls="nav-cause" aria-selected="false">원인</a>
+          <a class="nav-item nav-link" id="nav-diagnosis-tab" data-toggle="tab" href="#nav-diagnosis" role="tab" aria-controls="nav-diagnosis" aria-selected="false">진단</a>
+          <a class="nav-item nav-link" id="nav-treat-tab" data-toggle="tab" href="#nav-treat" role="tab" aria-controls="nav-treat" aria-selected="false">치료</a>
+          <a class="nav-item nav-link" id="nav-site-tab" data-toggle="tab" href="#nav-site" role="tab" aria-controls="nav-site" aria-selected="false">참고자료</a>
+          <a class="nav-item nav-link" id="nav-institution-tab" data-toggle="tab" href="#nav-institution" role="tab" aria-controls="nav-institution" aria-selected="false">의료기관</a>
+          <a class="nav-item nav-link" id="nav-supervisor-tab" data-toggle="tab" href="#nav-supervisor" role="tab" aria-controls="nav-supervisor" aria-selected="false">감수</a>
+          <a class="nav-item nav-link" id="nav-etc-tab" data-toggle="tab" href="#nav-etc" role="tab" aria-controls="nav-etc" aria-selected="false">기타</a>
+        </div>
+      </nav>
+      <!--카드 내용-->
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor %></div>
+        <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
+      </div>
+    </div>
+    <script src="/javascripts/favorite_manager.js"></script>
+    <script>
+      var myFavoriteList = get_item();
+      if(myFavoriteList === null) myFavoriteList = [];
+      var checkitem = '<%= names[0].name %>'.trim();
+      if (myFavoriteList.includes(checkitem)){
+        document.getElementById('star').className = 'star_solid';
+      } else {
+        document.getElementById('star').className = 'star_regular';
+      }
+    </script>
+  </body> 
 </html>
