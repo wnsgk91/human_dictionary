@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <% include ../header.ejs %>
-    <link rel="stylesheet" href="/css/home.css">
-    <script src="/javascripts/favorite_manager.js"></script>
-    <script src="/javascripts/search_history.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="col-lg-12 text-center">
-        <h3 class="mt-4 mb-4" id="welcome">희귀난치병 정보를 찾아보세요</h3>
-      </div>
-      <div class="col-lg-12 mb-4 text-center">
-        <div id="search_section">
-          <form class="form" id="home_search_form" action="/search" method="post">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="병명을 입력해주세요" aria-label="Search" aria-describedby="button-addon2" id="search_search" name = "keyword">
-              <div class="input-group-append">
-                <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
-              </div>
-            </div>
-          </form>
+<head>
+  <% include ../header.ejs %>
+  <link rel="stylesheet" href="/css/home.css">
+  <script src="/js/favorite_manager.js"></script>
+  <script src="/js/search_history.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="col-lg-12 text-center">
+    <h3 class="mt-4 mb-4" id="welcome">희귀난치병 정보를 찾아보세요</h3>
+  </div>
+  <div class="col-lg-12 mb-4 text-center">
+    <div id="search_section">
+      <form class="form" id="home_search_form" action="/search" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="병명을 입력해주세요" aria-label="Search" aria-describedby="button-addon2" id="search_search" name = "keyword">
+          <div class="input-group-append">
+            <button class="btn btn-outline-success ml-2 my-sm-0" type="submit"  onclick="search_history()">검색하기</button>
+          </div>
         </div>
-      </div>
-      <div class="col-lg-12 mb-4 text-center">
-        <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
-        <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
-      </div>
-      <div class="col-lg-12 mb-4 text-center">
-        <div class="card my-sm-2">
-            <div class="card-header">최근 검색기록 <div class="trash_bin float-right" onclick="delete_history();"></div></div>
-            <ul class="list-group list-group-flush" id="history_place"><!--검색기록--></ul>
-            <!--<div class="card-body">
-              <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">전체삭제</button>
-            </div>-->
-        </div>
-      </div>
-        <div class="col-lg-12 mb-4 text-center">
-          <div class="card my-sm-2" id="story">
-            <div class="card-header">희귀난치병 이야기</div>
-              <div class="card-body" id="disease_story">
-                <h5 class="card-title"><%= name[0].name %></h5>
-                <p class="card-text" id="story_text"><%= name[0].sum %></p>
-               <!-- <button onclick="location.href='/document/'" type="button" class="btn btn-outline-secondary">자세히 보기</button>-->
-              </div>
-        </div>
-      </div>
+      </form>
     </div>
-  <script>
-      $("#disease_story").on("click", function() {
-        location.href ='/document/<%= name[0].name %>';
-      });
-  </script>
-  </body>
+  </div>
+  <div class="col-lg-12 mb-4 text-center">
+    <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/search' ">사전목록</button>
+    <button type="button" class="btn btn-outline-primary mt-2 ml-2" onclick = "location.href = '/favorite'" id="go_to_fav_btn">즐겨찾기</button>
+  </div>
+  <div class="col-lg-12 mb-4 text-center">
+    <div class="card my-sm-2">
+        <div class="card-header">최근 검색기록 <div class="trash_bin float-right" onclick="delete_history();"></div></div>
+        <ul class="list-group list-group-flush" id="history_place"><!--검색기록--></ul>
+        <!--<div class="card-body">
+          <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">전체삭제</button>
+        </div>-->
+    </div>
+  </div>
+    <div class="col-lg-12 mb-4 text-center">
+      <div class="card my-sm-2" id="story">
+        <div class="card-header">희귀난치병 이야기</div>
+          <div class="card-body" id="disease_story">
+            <h5 class="card-title"><%= name[0].name %></h5>
+            <p class="card-text" id="story_text"><%= name[0].sum %></p>
+           <!-- <button onclick="location.href='/document/'" type="button" class="btn btn-outline-secondary">자세히 보기</button>-->
+          </div>
+    </div>
+  </div>
+</div>
+<script>
+  $("#disease_story").on("click", function() {
+    location.href ='/document/<%= name[0].name %>';
+  });
+</script>
+</body>
 </html>
 

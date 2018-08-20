@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% include ../header.ejs %>
-<link rel="stylesheet" href="/css/document.css">
+  <% include ../header.ejs %>
+  <link rel="stylesheet" href="/css/document.css">
+  <script src="/js/favorite_manager.js"></script>
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <li id="document_title">
-        <h4 class="document_title" ><%= names[0].name %></h4>
-        <p>
-          <div id="star" class=""></div>
-        </p>
+        <h4 class="document_title" ><%= names[0].name %></h4><p><div id="star" class=""></div></p>
       </li>
     </div>
   </div>
@@ -32,29 +30,40 @@
     </nav>
     <!--카드 내용-->  
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor %></div>
-      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc %></div>
+      <div class="tab-pane fade show active pt-5 pb-5 pl-5 pr-5" id="nav-sum" role="tabpanel" aria-labelledby="nav-sum-tab"><%= names[0].sum.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-symptom" role="tabpanel" aria-labelledby="nav-symptom-tab"><%= names[0].symptom.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-cause" role="tabpanel" aria-labelledby="nav-cause-tab"><%= names[0].cause.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-diagnosis" role="tabpanel" aria-labelledby="nav-diagnosis-tab"><%= names[0].diagnosis.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-treat" role="tabpanel" aria-labelledby="nav-treat-tab"><%= names[0].treat.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab"><%= names[0].site.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-institution" role="tabpanel" aria-labelledby="nav-institution-tab"><%= names[0].institution.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-supervisor" role="tabpanel" aria-labelledby="nav-supervisor-tab"><%= names[0].supervisor.trim() %></div>
+      <div class="tab-pane fade pt-5 pb-5 pl-5 pr-5" id="nav-etc" role="tabpanel" aria-labelledby="nav-etc-tab"><%= names[0].etc.trim() %></div>
     </div>
   </div>
-  <script src="/javascripts/favorite_manager.js"></script>
-  <script>
-
-    var myFavoriteList = get_item();
-    if(myFavoriteList === null) myFavoriteList = [];
-    var checkitem = '<%= names[0].name %>'.trim();
-    if (myFavoriteList.includes(checkitem)){
-      document.getElementById('star').className = 'star_solid';
-    } else {
-      document.getElementById('star').className = 'star_regular';
+<script>
+/*    function replace(id) {
+      var sumtext = document.getElementById(id);
+      var sumtextHTML = sumtext.innerHTML;
+      sumtext.innerHTML = sumtextHTML.replace(/\r\n/g,"");
+      sumtext.innerHTML = sumtextHTML.replace(/(\n)/g,"<br />");
     }
+    replace('nav-sum');
+    replace('nav-symptom');
+    replace('nav-cause');
+    replace('nav-diagnosis');
+    replace('nav-treat');
+    replace('nav-site');
+    replace('nav-institution');*/
 
+  var myFavoriteList = get_item();
+  if(myFavoriteList === null) myFavoriteList = [];
+  var checkitem = '<%= names[0].name %>'.trim();
+  if (myFavoriteList.includes(checkitem)){
+    document.getElementById('star').className = 'star_solid';
+  } else {
+    document.getElementById('star').className = 'star_regular';
+  }
   </script>
 </body>
 </html>
