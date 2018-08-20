@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	//password: 'dlwnsgk94',
-  password: '1648',
+  password: '111111',
 	database: 'dic'
 });
 
@@ -33,16 +33,16 @@ app.get('/', function(req, res) {
   values = [];
 
   // String 형식으로 받음.
-  var jsondata = fs.readFileSync("./test.json", 'utf8');
+  var jsondata = fs.readFileSync("./regular_expression_name.json", 'utf8');
   var modified = JSON.parse(jsondata.trim());
 
   for (var i = 0; i <= Object.keys(modified.diseases).length-1; i++) {
     if (modified.diseases[i].Supervision === undefined ) {
-      modified.diseases[i].Supervision = "해당내용 없습니다.";
-      console.log(modified.diseases[i].Supervision);
+      modified.diseases[i].Supervision = " ";
+      //console.log(modified.diseases[i].Supervision);
       values.push([modified.diseases[i].name, modified.diseases[i].GeneralDiscussion,modified.diseases[i].Symptoms,modified.diseases[i].Causes,modified.diseases[i].Diagnosis,modified.diseases[i].Treatment,modified.diseases[i].BibliographySite,modified.diseases[i].Etc,modified.diseases[i].Hospital, modified.diseases[i].Supervision]);
     } else {
-    console.log(modified.diseases[i].Supervision);
+    //console.log(modified.diseases[i].Supervision);
     values.push([modified.diseases[i].name, modified.diseases[i].GeneralDiscussion,modified.diseases[i].Symptoms,modified.diseases[i].Causes,modified.diseases[i].Diagnosis,modified.diseases[i].Treatment,modified.diseases[i].BibliographySite,modified.diseases[i].Etc,modified.diseases[i].Hospital, modified.diseases[i].Supervision]);
     }
   }
