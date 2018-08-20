@@ -27,26 +27,31 @@
       </div>
       <div class="col-lg-12 mb-4 text-center">
         <div class="card my-sm-2">
-          <div class="card-header">최근 검색기록 </div>
-          <ul class="list-group list-group-flush" id="history_place"><!--검색기록--></ul>
-          <div class="card-body">
-            <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">전체삭제</button>
-          </div>
+            <div class="card-header">최근 검색기록 <div class="trash_bin float-right" onclick="delete_history();"></div></div>
+            <ul class="list-group list-group-flush" id="history_place"><!--검색기록--></ul>
+            <!--<div class="card-body">
+              <button type="button" class="btn btn-outline-secondary mt-2" onclick = "delete_history();">전체삭제</button>
+            </div>-->
         </div>
       </div>
-      <div class="col-lg-12 mb-4 text-center">
-        <div class="card my-sm-2">
-          <div class="card-header">희귀난치병 이야기</div>
-            <div class="card-body" id="disease_story">
-              <h5 class="card-title"><%= name[0].name %></h5>
-              <p class="card-text" id="story_text"><%= name[0].sum %></p>
-              <button onclick="location.href='/document/<%= name[0].name %>'" type="button" class="btn btn-outline-secondary">자세히 보기</button>
-            </div>
+        <div class="col-lg-12 mb-4 text-center">
+          <div class="card my-sm-2" id="story">
+            <div class="card-header">희귀난치병 이야기</div>
+              <div class="card-body" id="disease_story">
+                <h5 class="card-title"><%= name[0].name %></h5>
+                <p class="card-text" id="story_text"><%= name[0].sum %></p>
+               <!-- <button onclick="location.href='/document/'" type="button" class="btn btn-outline-secondary">자세히 보기</button>-->
+              </div>
         </div>
       </div>
     </div>
       <script src="/javascripts/favorite_manager.js"></script>
       <script src="/javascripts/search_history.js"></script>
+  <script>
+      $("#disease_story").on("click", function() {
+        location.href ='/document/<%= name[0].name %>';
+      });
+  </script>
   </body>
 </html>
 
