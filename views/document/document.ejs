@@ -45,6 +45,7 @@
   </div>
   <script src="/javascripts/favorite_manager.js"></script>
   <script>
+
     var myFavoriteList = get_item();
     if(myFavoriteList === null) myFavoriteList = [];
     var checkitem = '<%= names[0].name %>'.trim();
@@ -53,6 +54,7 @@
     } else {
       document.getElementById('star').className = 'star_regular';
     }
+
   </script>
 </body>
 </html>

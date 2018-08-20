@@ -8,8 +8,8 @@ var fs = require('fs');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	//password: 'dlwnsgk94',
-  password: '111111',
+	password: 'dlwnsgk94',
+  //password: '111111',
 	database: 'dic'
 });
 

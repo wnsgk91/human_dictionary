@@ -65,4 +65,5 @@
     background: url("/img/trash-alt-regular.svg") no-repeat;
     display: inline-block;
     float: right;
+    cursor: pointer;
 }
